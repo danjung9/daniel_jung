@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-label="Commerce analytics dashboard preview">
+  <rect width="1600" height="960" fill="#efe8df" />
+  <rect x="80" y="80" width="1440" height="800" rx="36" fill="#ffffff" />
+  <rect x="140" y="140" width="280" height="680" rx="28" fill="#1b2430" />
+  <rect x="480" y="140" width="460" height="180" rx="26" fill="#d8efe9" />
+  <rect x="980" y="140" width="400" height="180" rx="26" fill="#eadfcd" />
+  <rect x="480" y="360" width="900" height="460" rx="26" fill="#f8f5f0" stroke="#d9d0c5" />
+  <path d="M560 700c90-140 190-100 280-210s170-30 250-160 170-80 250-180" stroke="#0f766e" stroke-width="18" fill="none" stroke-linecap="round" />
+</svg>
+

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-label="Observability workspace preview">
+  <rect width="1600" height="960" fill="#efe8df" />
+  <rect x="100" y="100" width="1400" height="760" rx="40" fill="#ffffff" />
+  <rect x="160" y="160" width="460" height="640" rx="30" fill="#f8f5f0" stroke="#ddd0bf" />
+  <rect x="680" y="160" width="760" height="110" rx="26" fill="#1b2430" />
+  <rect x="680" y="310" width="760" height="360" rx="26" fill="#d8efe9" />
+  <rect x="680" y="710" width="760" height="90" rx="26" fill="#eadfcd" />
+  <path d="M250 300h280" stroke="#1b2430" stroke-width="20" stroke-linecap="round" />
+  <path d="M250 390h220" stroke="#1b2430" stroke-width="20" stroke-linecap="round" />
+  <path d="M250 480h260" stroke="#1b2430" stroke-width="20" stroke-linecap="round" />
+  <path d="M250 570h180" stroke="#1b2430" stroke-width="20" stroke-linecap="round" />
+</svg>
+

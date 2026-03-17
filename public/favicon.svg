@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DJ monogram">
+  <rect width="64" height="64" rx="16" fill="#1b2430" />
+  <path d="M18 18h12c10.5 0 17 6 17 14s-6.5 14-17 14H18zm11.1 22c6.3 0 10.3-3 10.3-8s-4-8-10.3-8H26v16z" fill="#f6f3ee" />
+  <path d="M46 18v18c0 8.7-5.1 14-14 14-4.1 0-7.8-1.1-10.3-2.9l3-5.7c1.9 1.4 4.4 2.2 6.8 2.2 4.5 0 7-2.3 7-7.2V18z" fill="#59b7ac" />
+</svg>
+

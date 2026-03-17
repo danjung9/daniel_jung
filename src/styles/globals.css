@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f3ee;
+  --background-strong: #efe8df;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.94);
+  --text: #1b2430;
+  --text-muted: #4e5a67;
+  --border: rgba(27, 36, 48, 0.12);
+  --accent: #0f766e;
+  --accent-soft: rgba(15, 118, 110, 0.12);
+  --shadow: 0 24px 60px rgba(27, 36, 48, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.14), transparent 32%),
+    radial-gradient(circle at top right, rgba(180, 139, 70, 0.12), transparent 28%),
+    var(--background);
+  color: var(--text);
+  font-family: "Avenir Next", "Aptos", "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(15, 118, 110, 0.18);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.surface {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.surface-strong {
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+}
+
+.prose-copy {
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.eyebrow {
+  color: var(--accent);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 560ms ease both;
+}
+

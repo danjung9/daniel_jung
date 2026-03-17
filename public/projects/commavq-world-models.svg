@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-label="World models exploration preview">
+  <rect width="1600" height="960" fill="#efe8df" />
+  <rect x="90" y="90" width="1420" height="780" rx="42" fill="#ffffff" />
+  <rect x="148" y="148" width="1304" height="238" rx="28" fill="#1b2430" />
+  <rect x="148" y="430" width="404" height="312" rx="28" fill="#d8efe9" />
+  <rect x="598" y="430" width="404" height="312" rx="28" fill="#fbfaf7" stroke="#d9d0c5" />
+  <rect x="1048" y="430" width="404" height="312" rx="28" fill="#f1dfc8" />
+  <circle cx="360" cy="266" r="74" fill="#0f766e" opacity="0.9" />
+  <circle cx="802" cy="266" r="74" fill="#c78e3a" opacity="0.9" />
+  <circle cx="1242" cy="266" r="74" fill="#d8efe9" opacity="0.9" />
+  <path d="M360 430c62 32 126 56 192 70" fill="none" stroke="#1b2430" stroke-linecap="round" stroke-width="16" />
+  <path d="M802 430c-24 102-86 182-204 248" fill="none" stroke="#0f766e" stroke-linecap="round" stroke-width="16" />
+  <path d="M1242 430c-88 58-148 104-194 196" fill="none" stroke="#c78e3a" stroke-linecap="round" stroke-width="16" />
+  <path d="M666 542h266" stroke="#1b2430" stroke-linecap="round" stroke-width="18" />
+  <path d="M666 620h202" stroke="#1b2430" stroke-linecap="round" stroke-width="18" />
+  <path d="M666 698h150" stroke="#1b2430" stroke-linecap="round" stroke-width="18" />
+</svg>

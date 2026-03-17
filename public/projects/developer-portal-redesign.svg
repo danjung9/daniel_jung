@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-label="Design system workspace preview">
+  <rect width="1600" height="960" fill="#f6f3ee" />
+  <rect x="90" y="90" width="1420" height="780" rx="40" fill="#ffffff" />
+  <rect x="150" y="150" width="520" height="660" rx="28" fill="#f8f5f0" stroke="#d8cec1" />
+  <rect x="720" y="150" width="640" height="220" rx="28" fill="#1b2430" />
+  <rect x="720" y="410" width="300" height="180" rx="24" fill="#d8efe9" />
+  <rect x="1060" y="410" width="300" height="180" rx="24" fill="#eadfcd" />
+  <rect x="720" y="630" width="640" height="180" rx="24" fill="#f8f5f0" stroke="#d8cec1" />
+  <circle cx="290" cy="270" r="68" fill="#0f766e" />
+  <circle cx="460" cy="270" r="68" fill="#c78e3a" />
+  <circle cx="375" cy="430" r="68" fill="#1b2430" />
+</svg>
+

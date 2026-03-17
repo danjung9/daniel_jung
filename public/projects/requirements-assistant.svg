@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-label="Requirements assistant preview">
+  <rect width="1600" height="960" fill="#f6f3ee" />
+  <rect x="84" y="84" width="1432" height="792" rx="40" fill="#ffffff" />
+  <rect x="138" y="138" width="454" height="684" rx="28" fill="#f8f5f0" stroke="#ddd0bf" />
+  <rect x="636" y="138" width="826" height="136" rx="24" fill="#1b2430" />
+  <rect x="636" y="320" width="388" height="214" rx="24" fill="#d8efe9" />
+  <rect x="1074" y="320" width="388" height="214" rx="24" fill="#f1dfc8" />
+  <rect x="636" y="582" width="826" height="240" rx="24" fill="#fbfaf7" stroke="#d9d0c5" />
+  <path d="M200 244h280" stroke="#1b2430" stroke-width="18" stroke-linecap="round" />
+  <path d="M200 320h214" stroke="#1b2430" stroke-width="18" stroke-linecap="round" />
+  <path d="M200 406h306" stroke="#1b2430" stroke-width="18" stroke-linecap="round" />
+  <path d="M200 482h246" stroke="#1b2430" stroke-width="18" stroke-linecap="round" />
+  <path d="M200 558h198" stroke="#1b2430" stroke-width="18" stroke-linecap="round" />
+  <path d="M702 650h688" stroke="#0f766e" stroke-width="18" stroke-linecap="round" />
+  <path d="M702 720h540" stroke="#1b2430" stroke-width="18" stroke-linecap="round" />
+  <path d="M702 790h420" stroke="#c78e3a" stroke-width="18" stroke-linecap="round" />
+</svg>
+
