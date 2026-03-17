@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
     "Graduate Researcher in CERLAB",
     "Systems Engineer II @ Westinghouse"
   ],
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/Daniel_Jung.pdf",
   socials: [
     { label: "GitHub", href: "https://github.com/danjung9" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/dan-jung/" },
