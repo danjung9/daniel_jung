@@ -9,7 +9,7 @@ const heroFocus = "Vision transformers, engineering documents, and ML-enabled to
 
 export function Hero() {
   return (
-    <Section className="relative overflow-hidden pb-3 pt-2 sm:pb-4 sm:pt-5 lg:pb-4 lg:pt-6">
+    <Section className="relative overflow-hidden pb-1 pt-2 sm:pb-2 sm:pt-5 lg:pb-2 lg:pt-6">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-[31rem] bg-[radial-gradient(circle_at_14%_18%,rgba(15,118,110,0.18),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.8),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.55),rgba(255,255,255,0))]"
