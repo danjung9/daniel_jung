@@ -22,8 +22,8 @@ export function FeaturedProjects() {
           <div className="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
               eyebrow="Selected Work"
-              title="Projects that show applied AI, systems thinking, and product execution"
-              description="These featured repos were chosen to make your technical range obvious quickly: recommendation systems, document-understanding workflows, and robotics-adjacent ML exploration."
+              title="Built at the edge of what AI can do right now."
+              description="From recommendation engines to document-understanding workflows—projects across the full AI stack."
             />
             <Link
               href="/projects"

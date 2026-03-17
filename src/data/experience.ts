@@ -18,14 +18,14 @@ export const experience: ExperienceItem[] = [
   {
     company: "Westinghouse Electric Company",
     title: "Systems Engineer II",
-    period: "Sep 2025 - Present",
+    period: "Jun 2023 - Present",
     location: "Cranberry Township, Pennsylvania",
     summary:
       "Delivers complex systems engineering work with emphasis on design integration, reliability, and multidisciplinary problem solving.",
     achievements: [
       "Brings industrial systems rigor to software and AI problem framing.",
       "Grounds portfolio work in reliability, systems thinking, and engineering execution.",
-      "Builds a bridge between physical systems engineering and intelligent software."
+      "Builds first of a kind hardware projects with high stakes for safety and performance in the energy industry."
     ],
     stack: ["Systems Engineering", "Reliability", "Integration", "Technical Delivery"]
   },
@@ -39,7 +39,6 @@ export const experience: ExperienceItem[] = [
     achievements: [
       "Balances graduate research, teaching support, and project-based engineering work.",
       "Reinforces subject-matter depth and strong technical communication.",
-      "Signals trust and technical credibility inside a rigorous graduate program."
     ],
     stack: ["Teaching", "Communication", "Mechanics", "Graduate Coursework"]
   }

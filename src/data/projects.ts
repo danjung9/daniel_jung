@@ -26,7 +26,7 @@ export const projects: Project[] = [
       repo: "https://github.com/danjung9/MeetPeople",
       caseStudy: "/projects/meetpeople-recommendation-system"
     },
-    image: "/projects/meetpeople-recommendation-system.svg",
+    image: "/projects/meetpeople.png",
     featured: true,
     status: "live"
   },
@@ -39,7 +39,7 @@ export const projects: Project[] = [
     description:
       "This project uses Gradio for the interface, ChromaDB for in-memory retrieval, local sentence-transformer embeddings for document chunk search, and a Qwen model through OpenRouter to generate structured outputs. It is designed to help technical teams move from long-form requirements documents to actionable downstream artifacts faster.",
     role: "Independent Builder",
-    teamSize: 1,
+    teamSize: 4,
     period: "2025",
     stack: ["Python", "Gradio", "ChromaDB", "RAG", "Qwen"],
     highlights: [
@@ -55,7 +55,7 @@ export const projects: Project[] = [
       repo: "https://github.com/danjung9/requirements_management",
       caseStudy: "/projects/requirements-assistant"
     },
-    image: "/projects/requirements-assistant.svg",
+    image: "/projects/requirements-assistant.png",
     featured: true,
     status: "live"
   },
@@ -92,7 +92,7 @@ export const projects: Project[] = [
       repo: "https://github.com/danjung9/shoppinglens",
       caseStudy: "/projects/ai-shopping-glasses"
     },
-    image: "/projects/commavq-world-models.svg",
+    image: "/projects/shopping_lens.png",
     featured: true,
     status: "archived"
   }
