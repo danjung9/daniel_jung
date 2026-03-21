@@ -5,21 +5,21 @@ export const credibilitySignals: CredibilitySignal[] = [
     eyebrow: "Research",
     title: "Carnegie Mellon University",
     description:
-      "MS in Mechanical Engineering with active graduate research in CERLAB focused on engineering-document understanding with computer vision and AI transformers.",
-    meta: "Graduate Researcher · 2025 to present"
+      "Graduate research in CERLAB focused on engineering-document understanding with computer vision, transformers, and technical visual reasoning.",
+    meta: "MS candidate + graduate researcher"
   },
   {
     eyebrow: "Industry",
     title: "Westinghouse Electric Company",
     description:
-      "Systems Engineer II bringing reliability, integration discipline, and complex-systems thinking into AI and software work.",
-    meta: "Systems Engineer II · 2025 to present"
+      "Systems Engineer II operating in reliability- and integration-heavy environments where safety, documentation, and multidisciplinary coordination shape delivery.",
+    meta: "Systems Engineer II · 2023 to present"
   },
   {
-    eyebrow: "Signals",
-    title: "Applied credibility",
+    eyebrow: "Shipping",
+    title: "Independent AI builds",
     description:
-      "Engineer in Training certification, PyTorch for Deep Learning certification, and bilingual English/Korean communication across technical teams.",
-    meta: "AI / ML + systems engineering foundation"
+      "Independent projects turn research ideas into inspectable demos across recommendation systems, document workflows, and multimodal AI assistants.",
+    meta: "Applied AI + systems-minded execution"
   }
 ];

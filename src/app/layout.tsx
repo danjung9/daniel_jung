@@ -14,12 +14,15 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "frontend engineer",
+    "AI engineer",
+    "machine learning engineer",
+    "computer vision engineer",
+    "applied AI",
+    "systems engineering",
+    "robotics software",
     "portfolio",
     "Next.js",
-    "TypeScript",
-    "React",
-    "Tailwind CSS"
+    "TypeScript"
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -55,12 +58,19 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <div className="relative flex min-h-screen flex-col">
+          <a
+            href="#main-content"
+            className="absolute left-4 top-4 z-50 -translate-y-16 rounded-full bg-[var(--text)] px-4 py-2 text-sm font-semibold text-white transition-transform focus:translate-y-0 focus-visible:translate-y-0"
+          >
+            Skip to main content
+          </a>
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
           <SiteFooter />
         </div>
       </body>
     </html>
   );
 }
-

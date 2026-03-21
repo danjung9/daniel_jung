@@ -12,7 +12,7 @@ export function SocialLink({ label, href, className }: SocialLinkProps) {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className={`inline-flex items-center text-sm font-medium text-[var(--text)] underline decoration-[var(--border)] underline-offset-4 transition hover:decoration-[var(--accent)] focus-visible:outline-none ${className ?? ""}`}
+      className={`inline-flex items-center text-sm font-medium text-[var(--text)] underline decoration-[var(--border)] underline-offset-4 transition hover:decoration-[var(--accent)] ${className ?? ""}`}
     >
       {label}
     </Link>

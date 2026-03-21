@@ -18,7 +18,7 @@ export function SiteFooter() {
               href={social.href}
               target="_blank"
               rel="noreferrer"
-              className="font-medium text-[var(--text)] underline decoration-[var(--border)] underline-offset-4 hover:decoration-[var(--accent)] focus-visible:outline-none"
+              className="font-medium text-[var(--text)] underline decoration-[var(--border)] underline-offset-4 hover:decoration-[var(--accent)]"
             >
               {social.label}
             </Link>

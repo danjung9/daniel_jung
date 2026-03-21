@@ -5,7 +5,7 @@ import { Container } from "../layout/container";
 import { Section } from "../layout/section";
 import { Button } from "../ui/button";
 
-const heroFocus = "Vision transformers, engineering documents, and ML-enabled tools.";
+const heroProof = siteConfig.affiliations.slice(0, 3);
 
 export function Hero() {
   return (
@@ -20,18 +20,18 @@ export function Hero() {
           <div className="max-w-3xl pt-1">
             <div className="animate-fade-up">
               <span className="inline-flex items-center rounded-full border border-[var(--border)] bg-white/82 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--accent)] shadow-[0_10px_30px_rgba(27,36,48,0.06)] backdrop-blur">
-                Daniel Jung
+                Daniel Jung · AI / ML Engineer
               </span>
             </div>
 
             <div className="mt-4 animate-fade-up space-y-4 sm:space-y-5" style={{ animationDelay: "80ms" }}>
-              <h1 className="max-w-4xl text-[3.55rem] font-semibold leading-[0.92] tracking-[-0.065em] text-[var(--text)] sm:text-[4.55rem] md:text-[5.15rem] lg:text-[4.9rem] xl:text-[5.3rem]">
-                Building AI systems that can read complex signals and operate in
-                the real world.
+              <h1 className="max-w-4xl text-[3.15rem] font-semibold leading-[0.92] tracking-[-0.065em] text-[var(--text)] sm:text-[4.25rem] md:text-[4.85rem] lg:text-[4.65rem] xl:text-[5.1rem]">
+                Applied AI systems for vision, documents, and real-world engineering.
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-[var(--text-muted)] sm:text-[1.15rem]">
-                AI / ML engineer focused on computer vision, intelligent developer
-                tools, and robotics-adjacent software with systems-level rigor.
+                I build production-minded ML software across computer vision,
+                engineering-document understanding, and robotics-adjacent workflows,
+                combining research depth with systems rigor.
               </p>
             </div>
 
@@ -40,17 +40,31 @@ export function Hero() {
               style={{ animationDelay: "140ms" }}
             >
               <Button href="/projects" size="lg">
-                View Projects
+                See Case Studies
               </Button>
               <Button href={siteConfig.resumeUrl} variant="secondary" size="lg">
-                Resume
+                Open Resume
               </Button>
             </div>
+
+            <ul
+              className="mt-6 animate-fade-up flex flex-wrap gap-3"
+              style={{ animationDelay: "200ms" }}
+            >
+              {heroProof.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-full border border-[var(--border)] bg-white/70 px-4 py-2 text-sm font-medium text-[var(--text)] shadow-[0_10px_24px_rgba(27,36,48,0.04)]"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div
             className="animate-fade-up lg:pt-1"
-            style={{ animationDelay: "180ms" }}
+            style={{ animationDelay: "240ms" }}
           >
             <HeroPortrait />
           </div>
@@ -93,10 +107,10 @@ function HeroPortrait() {
             </div>
             <div className="pt-1 text-right">
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
-                Field Context
+                Current Context
               </p>
               <p className="mt-1 text-sm text-[var(--text-muted)]">
-                Human systems, real environments
+                Research + high-stakes systems
               </p>
             </div>
           </div>
@@ -122,15 +136,15 @@ function HeroPortrait() {
                 Current Focus
               </p>
               <p className="max-w-md text-sm leading-6 text-[var(--text)]">
-                {heroFocus}
+                {siteConfig.currentFocus}
               </p>
             </div>
             <div className="rounded-[1.15rem] border border-[var(--border)] bg-white/72 px-4 py-3">
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
-                Working Style
+                Execution Style
               </p>
               <p className="mt-1 text-sm leading-6 text-[var(--text)]">
-                Research-informed, systems-first, production-aware.
+                Research depth, systems rigor, production-minded delivery.
               </p>
             </div>
           </div>

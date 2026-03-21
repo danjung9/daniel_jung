@@ -9,9 +9,9 @@ export function CredibilitySignals() {
     <Section id="credibility">
       <Container className="space-y-10">
         <SectionHeading
-          eyebrow="Credibility"
-          title="Signals that make the profile legible to recruiters and technical hiring managers"
-          description="The homepage highlights research depth, current industry context, and practical engineering signals without forcing the reader to dig."
+          eyebrow="Current Context"
+          title="Why the work reads as credible quickly."
+          description="Graduate research, current industry work, and independent shipping all point in the same direction: applied AI built with engineering discipline."
         />
         <div className="grid gap-6 lg:grid-cols-3">
           {credibilitySignals.map((signal) => (

@@ -14,7 +14,7 @@ export function SiteHeader() {
       <Container className="flex h-18 items-center justify-between py-4">
         <Link
           href="/"
-          className="text-sm font-semibold tracking-[0.08em] text-[var(--text)] focus-visible:outline-none"
+          className="text-sm font-semibold tracking-[0.08em] text-[var(--text)]"
         >
           {siteConfig.name}
         </Link>

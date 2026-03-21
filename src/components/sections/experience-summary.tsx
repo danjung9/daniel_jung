@@ -10,8 +10,8 @@ export function ExperienceSummary() {
       <Container className="space-y-10">
         <SectionHeading
           eyebrow="Experience"
-          title="Shipping production-grade interfaces with business context"
-          description="I focus on user-facing architecture that is maintainable, measurable, and fast."
+          title="Experience across research labs, high-consequence systems, and technical instruction"
+          description="The common thread is ownership under constraints: ambiguous research problems, reliability-sensitive engineering environments, and clear technical communication."
         />
         <div className="grid gap-6">
           {experience.map((item) => (

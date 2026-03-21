@@ -12,23 +12,23 @@ export function ContactCta() {
             <div>
               <p className="eyebrow text-sm font-semibold">Contact</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--text)] sm:text-4xl">
-                Open to AI / ML, robotics, and software engineering conversations
+                Open to applied AI / ML, intelligent systems, and research-to-product roles
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--text-muted)]">
-                If you are hiring for applied ML, intelligent systems, or
-                research-to-product engineering roles, the fastest way to reach me
-                is by email.
+                If you are hiring for applied ML, computer vision, or systems-heavy
+                software work, the fastest path is email. Resume and profile links are
+                also below for quick screening.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href={`mailto:${siteConfig.email}`}
-                  className="inline-flex h-11 items-center justify-center rounded-full bg-[var(--text)] px-5 text-sm font-semibold !text-white hover:-translate-y-0.5 hover:bg-[var(--accent)] focus-visible:outline-none"
+                  className="inline-flex h-11 items-center justify-center rounded-full bg-[var(--text)] px-5 text-sm font-semibold !text-white hover:-translate-y-0.5 hover:bg-[var(--accent)]"
                 >
                   Email
                 </Link>
                 <Link
                   href={siteConfig.resumeUrl}
-                  className="inline-flex h-11 items-center justify-center rounded-full border border-[var(--border)] bg-white/70 px-5 text-sm font-semibold text-[var(--text)] hover:-translate-y-0.5 hover:border-[var(--accent)] focus-visible:outline-none"
+                  className="inline-flex h-11 items-center justify-center rounded-full border border-[var(--border)] bg-white/70 px-5 text-sm font-semibold text-[var(--text)] hover:-translate-y-0.5 hover:border-[var(--accent)]"
                 >
                   Resume
                 </Link>

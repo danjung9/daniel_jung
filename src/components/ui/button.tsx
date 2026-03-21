@@ -36,7 +36,7 @@ export function Button({
   type = "button",
   ...props
 }: ButtonProps) {
-  const classNames = `inline-flex items-center justify-center rounded-full font-semibold transition hover:-translate-y-0.5 focus-visible:outline-none disabled:cursor-not-allowed ${variantClassMap[variant]} ${sizeClassMap[size]} ${className ?? ""}`;
+  const classNames = `inline-flex items-center justify-center rounded-full font-semibold transition hover:-translate-y-0.5 disabled:cursor-not-allowed ${variantClassMap[variant]} ${sizeClassMap[size]} ${className ?? ""}`;
 
   if (href) {
     return (

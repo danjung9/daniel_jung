@@ -11,8 +11,8 @@ export function SkillsGrid() {
       <Container className="space-y-10">
         <SectionHeading
           eyebrow="Capabilities"
-          title="Core strengths across frontend engineering"
-          description="Depth in user interface engineering, system quality, and team collaboration."
+          title="Core tools for applied AI and systems work"
+          description="A compact view of the stack behind the projects: model-centric workflows, production software, and engineering contexts."
         />
         <div className="grid gap-6 md:grid-cols-3">
           {skills.map((group) => (

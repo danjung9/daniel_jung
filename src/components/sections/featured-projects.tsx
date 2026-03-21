@@ -22,14 +22,14 @@ export function FeaturedProjects() {
           <div className="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
               eyebrow="Selected Work"
-              title="Built at the edge of what AI can do right now."
-              description="From recommendation engines to document-understanding workflows—projects across the full AI stack."
+              title="Case studies that show applied AI, product judgment, and systems depth."
+              description="A quick path into the strongest work: recommendation systems, document intelligence, and multimodal assistants built to be inspectable and credible."
             />
             <Link
               href="/projects"
-              className="text-sm font-semibold text-[var(--text)] underline decoration-[var(--border)] underline-offset-4 hover:decoration-[var(--accent)] focus-visible:outline-none"
+              className="text-sm font-semibold text-[var(--text)] underline decoration-[var(--border)] underline-offset-4 hover:decoration-[var(--accent)]"
             >
-              See all projects
+              Browse all projects
             </Link>
           </div>
 

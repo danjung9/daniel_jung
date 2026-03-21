@@ -7,11 +7,11 @@ export const experience: ExperienceItem[] = [
     period: "Apr 2025 - Present",
     location: "Pittsburgh, Pennsylvania",
     summary:
-      "Researching machine understanding of engineering documents using computer vision and AI transformers in CERLAB under Professor Kenji Shimada.",
+      "Researches machine understanding of engineering documents in CERLAB under Professor Kenji Shimada, with emphasis on computer vision, transformers, and technical visual structure.",
     achievements: [
-      "Focuses on AI methods for understanding technical, diagram-heavy engineering content.",
-      "Connects research work with production-minded system design and experimentation.",
-      "Builds credibility for applied computer vision and transformer-based workflows."
+      "Studies diagram-heavy engineering content where model quality depends on layout, context, and domain-specific document structure.",
+      "Builds experiments around evaluation questions that matter for real engineering workflows, not just model novelty.",
+      "Uses graduate research as a foundation for deployable AI systems and portfolio projects."
     ],
     stack: ["Computer Vision", "Transformers", "AI Research", "Engineering Documents"]
   },
@@ -21,11 +21,11 @@ export const experience: ExperienceItem[] = [
     period: "Jun 2023 - Present",
     location: "Cranberry Township, Pennsylvania",
     summary:
-      "Delivers complex systems engineering work with emphasis on design integration, reliability, and multidisciplinary problem solving.",
+      "Works on complex systems programs where integration, reliability, documentation, and multidisciplinary coordination directly affect delivery.",
     achievements: [
-      "Brings industrial systems rigor to software and AI problem framing.",
-      "Grounds portfolio work in reliability, systems thinking, and engineering execution.",
-      "Builds first of a kind hardware projects with high stakes for safety and performance in the energy industry."
+      "Contributes to first-of-a-kind hardware efforts in environments where safety and performance constraints matter.",
+      "Operates in multidisciplinary delivery settings that reward careful interfaces, documentation quality, and failure-aware thinking.",
+      "Brings high-consequence systems rigor into software and AI work, especially around reliability and operational judgment."
     ],
     stack: ["Systems Engineering", "Reliability", "Integration", "Technical Delivery"]
   },
@@ -35,10 +35,11 @@ export const experience: ExperienceItem[] = [
     period: "Jan 2026 - Present",
     location: "Pittsburgh, Pennsylvania",
     summary:
-      "Supports Mechanics II instruction while continuing graduate coursework in AI-adjacent engineering topics.",
+      "Supports Mechanics II instruction while continuing graduate research and independent applied-AI development.",
     achievements: [
-      "Balances graduate research, teaching support, and project-based engineering work.",
-      "Reinforces subject-matter depth and strong technical communication.",
+      "Explains technical material clearly through grading and instructional support for engineering coursework.",
+      "Balances teaching, research, and project work without losing depth in any one track.",
+      "Strengthens technical communication through repeated review of engineering reasoning and problem-solving."
     ],
     stack: ["Teaching", "Communication", "Mechanics", "Graduate Coursework"]
   }
