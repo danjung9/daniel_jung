@@ -13,8 +13,8 @@ export function NavLink({ href, children, current = false, className }: NavLinkP
     <Link
       href={href}
       aria-current={current ? "page" : undefined}
-      className={`rounded-full px-3 py-2 text-sm font-medium text-[var(--text-muted)] transition hover:bg-white/70 hover:text-[var(--text)] ${
-        current ? "bg-white/80 text-[var(--text)]" : ""
+      className={`nav-link border-b border-transparent px-1 py-2 text-sm font-medium text-[var(--text-muted)] transition hover:!text-[var(--accent)] ${
+        current ? "!border-[var(--accent)] !text-[var(--accent)]" : ""
       } ${className ?? ""}`}
     >
       {children}

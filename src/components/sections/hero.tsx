@@ -1,37 +1,40 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { siteConfig } from "../../data/site";
 import { Container } from "../layout/container";
 import { Section } from "../layout/section";
-import { Button } from "../ui/button";
 
-const heroProof = siteConfig.affiliations.slice(0, 3);
+const heroProof = [
+  {
+    label: "Research",
+    value: "CMU MS + graduate work in engineering-document understanding"
+  },
+  {
+    label: "Industry",
+    value: "Systems Engineer II building in reliability-sensitive environments"
+  },
+  {
+    label: "Focus",
+    value: "Computer vision, document intelligence, and practical AI systems"
+  }
+];
 
 export function Hero() {
   return (
-    <Section className="relative overflow-hidden pb-1 pt-2 sm:pb-2 sm:pt-5 lg:pb-2 lg:pt-6">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[31rem] bg-[radial-gradient(circle_at_14%_18%,rgba(15,118,110,0.18),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.8),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.55),rgba(255,255,255,0))]"
-      />
-
-      <Container className="relative">
-        <div className="grid gap-7 lg:grid-cols-[minmax(0,1.02fr)_minmax(320px,0.98fr)] lg:items-start lg:gap-8">
-          <div className="max-w-3xl pt-1">
-            <div className="animate-fade-up">
-              <span className="inline-flex items-center rounded-full border border-[var(--border)] bg-white/82 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--accent)] shadow-[0_10px_30px_rgba(27,36,48,0.06)] backdrop-blur">
-                Daniel Jung · AI / ML Engineer
-              </span>
-            </div>
-
-            <div className="mt-4 animate-fade-up space-y-4 sm:space-y-5" style={{ animationDelay: "80ms" }}>
-              <h1 className="max-w-4xl text-[3.15rem] font-semibold leading-[0.92] tracking-[-0.065em] text-[var(--text)] sm:text-[4.25rem] md:text-[4.85rem] lg:text-[4.65rem] xl:text-[5.1rem]">
-                Applied AI systems for vision, documents, and real-world engineering.
+    <Section className="overflow-hidden border-b border-[var(--border)] bg-[var(--background)] py-8 sm:py-12 lg:min-h-[calc(100svh-4rem)] lg:py-14">
+      <Container className="relative flex h-full items-center">
+        <div className="grid w-full gap-10 lg:grid-cols-[minmax(0,1.18fr)_18rem] lg:items-center lg:gap-12 xl:grid-cols-[minmax(0,1.2fr)_19rem]">
+          <div className="max-w-3xl">
+            <div
+              className="animate-fade-up space-y-4 sm:space-y-5"
+              style={{ animationDelay: "80ms" }}
+            >
+              <h1 className="max-w-4xl text-[3rem] font-semibold leading-[0.95] tracking-[-0.065em] text-[var(--text)] sm:text-[4rem] md:text-[4.5rem] lg:text-[4.35rem] xl:text-[4.75rem]">
+                Applied AI engineer building reliable systems people can use.
               </h1>
-              <p className="max-w-2xl text-lg leading-8 text-[var(--text-muted)] sm:text-[1.15rem]">
-                I build production-minded ML software across computer vision,
-                engineering-document understanding, and robotics-adjacent workflows,
-                combining research depth with systems rigor.
+              <p className="max-w-2xl text-base leading-7 text-[var(--text-muted)] sm:text-lg sm:leading-8">
+                I work across computer vision, document intelligence, and systems-heavy software, translating research into clear, production-minded case studies.
               </p>
             </div>
 
@@ -39,31 +42,42 @@ export function Hero() {
               className="mt-6 animate-fade-up flex flex-wrap gap-3"
               style={{ animationDelay: "140ms" }}
             >
-              <Button href="/projects" size="lg">
-                See Case Studies
-              </Button>
-              <Button href={siteConfig.resumeUrl} variant="secondary" size="lg">
+              <Link
+                href="/projects"
+                className="inline-flex h-12 items-center justify-center border border-[var(--text)] bg-[var(--text)] px-5 text-base font-semibold !text-white transition hover:bg-[var(--accent)] hover:border-[var(--accent)]"
+              >
+                View Projects
+              </Link>
+              <Link
+                href={siteConfig.resumeUrl}
+                className="inline-flex h-12 items-center justify-center border border-[var(--border)] bg-white px-5 text-base font-semibold text-[var(--text)] transition hover:border-[var(--text)]"
+              >
                 Open Resume
-              </Button>
+              </Link>
             </div>
 
-            <ul
-              className="mt-6 animate-fade-up flex flex-wrap gap-3"
+            <dl
+              className="mt-8 animate-fade-up grid gap-0 border-y border-[var(--border)]"
               style={{ animationDelay: "200ms" }}
             >
               {heroProof.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-full border border-[var(--border)] bg-white/70 px-4 py-2 text-sm font-medium text-[var(--text)] shadow-[0_10px_24px_rgba(27,36,48,0.04)]"
+                <div
+                  key={item.label}
+                  className="grid gap-1 border-b border-[var(--border)] py-4 last:border-b-0 sm:grid-cols-[6rem_minmax(0,1fr)] sm:items-start sm:gap-4"
                 >
-                  {item}
-                </li>
+                  <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+                    {item.label}
+                  </dt>
+                  <dd className="text-sm leading-6 text-[var(--text)] sm:text-[0.95rem]">
+                    {item.value}
+                  </dd>
+                </div>
               ))}
-            </ul>
+            </dl>
           </div>
 
           <div
-            className="animate-fade-up lg:pt-1"
+            className="animate-fade-up"
             style={{ animationDelay: "240ms" }}
           >
             <HeroPortrait />
@@ -76,79 +90,25 @@ export function Hero() {
 
 function HeroPortrait() {
   return (
-    <div className="relative mx-auto w-full max-w-[34rem] lg:mx-0">
-      <div
-        aria-hidden="true"
-        className="absolute -left-6 top-10 h-24 w-24 rounded-full bg-[var(--accent-soft)] blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute right-2 top-0 h-32 w-32 rounded-full bg-white/80 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute left-6 right-10 top-6 hidden h-[88%] rounded-[2.4rem] border border-white/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.54),rgba(255,255,255,0.14))] lg:block"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-12 bottom-1 h-14 rounded-full bg-[rgba(27,36,48,0.12)] blur-2xl"
-      />
+    <div className="mx-auto w-full max-w-[18rem] lg:mx-0">
+      <div className="border border-[var(--border)] bg-[var(--surface-strong)] p-3">
+        <Image
+          src="/me.jpg"
+          alt={`${siteConfig.name} portrait`}
+          width={1536}
+          height={2048}
+          priority
+          className="h-[16rem] w-full object-cover object-center sm:h-[17rem] lg:h-[19rem]"
+        />
+      </div>
 
-      <div className="relative overflow-visible rounded-[2.35rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(255,255,255,0.66))] p-3 shadow-[0_28px_72px_rgba(27,36,48,0.1)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 sm:p-3.5">
-        <div className="rounded-[1.95rem] border border-white/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.62),rgba(255,255,255,0.16))] p-3.5">
-          <div className="flex items-start justify-between gap-4 pb-3">
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-                Based in
-              </p>
-              <p className="mt-1 text-base font-medium tracking-[-0.03em] text-[var(--text)] sm:text-[1.05rem]">
-                {siteConfig.location}
-              </p>
-            </div>
-            <div className="pt-1 text-right">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
-                Current Context
-              </p>
-              <p className="mt-1 text-sm text-[var(--text-muted)]">
-                Research + high-stakes systems
-              </p>
-            </div>
-          </div>
-
-          <div className="relative overflow-hidden rounded-[1.7rem] border border-white/70 bg-[var(--background-strong)]">
-            <div
-              aria-hidden="true"
-              className="absolute inset-x-0 top-0 z-10 h-14 bg-gradient-to-b from-white/55 to-transparent"
-            />
-            <Image
-              src="/me.jpg"
-              alt={`${siteConfig.name} portrait`}
-              width={1536}
-              height={2048}
-              priority
-              className="h-[20.5rem] w-full object-cover object-center transition duration-500 ease-out hover:scale-[1.03] sm:h-[24.5rem] lg:h-[27rem] xl:h-[28.5rem]"
-            />
-          </div>
-
-          <div className="mt-3 grid gap-3 border-t border-[var(--border)] pt-3 sm:grid-cols-[1.1fr_0.9fr]">
-            <div className="space-y-1">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-                Current Focus
-              </p>
-              <p className="max-w-md text-sm leading-6 text-[var(--text)]">
-                {siteConfig.currentFocus}
-              </p>
-            </div>
-            <div className="rounded-[1.15rem] border border-[var(--border)] bg-white/72 px-4 py-3">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
-                Execution Style
-              </p>
-              <p className="mt-1 text-sm leading-6 text-[var(--text)]">
-                Research depth, systems rigor, production-minded delivery.
-              </p>
-            </div>
-          </div>
-        </div>
+      <div className="mt-4 border-t border-[var(--border)] pt-3">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+          Pittsburgh, Pennsylvania
+        </p>
+        <p className="mt-1 text-sm leading-6 text-[var(--text-muted)]">
+          Carnegie Mellon research and systems engineering experience.
+        </p>
       </div>
     </div>
   );

@@ -46,7 +46,7 @@ export function SiteHeader() {
   }, [isMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-[var(--border)] bg-[rgba(246,243,238,0.82)] backdrop-blur-xl">
+    <header className="sticky top-0 z-30 border-b border-[var(--border)] bg-[var(--header-background)] backdrop-blur-xl">
       <Container className="relative flex h-16 items-center justify-between py-3 sm:h-18 sm:py-4">
         <Link
           href="/"
@@ -60,7 +60,7 @@ export function SiteHeader() {
           aria-expanded={isMenuOpen}
           aria-controls={menuId}
           aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-white/75 text-[var(--text)] shadow-[0_8px_20px_rgba(27,36,48,0.05)] md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-[4px] border border-[var(--border)] bg-white text-[var(--text)] shadow-[0_8px_20px_rgba(25,35,46,0.05)] md:hidden"
           onClick={() => setIsMenuOpen((open) => !open)}
         >
           <span aria-hidden="true" className="flex flex-col gap-1.5">
@@ -102,7 +102,7 @@ export function SiteHeader() {
             <nav
               id={menuId}
               aria-label="Mobile"
-              className="overflow-hidden rounded-[1.6rem] border border-[var(--border)] bg-[rgba(255,255,255,0.94)] p-2 shadow-[0_24px_60px_rgba(27,36,48,0.12)] backdrop-blur-xl"
+              className="overflow-hidden border border-[var(--border)] bg-[var(--surface-strong)] p-2 shadow-[0_20px_48px_rgba(25,35,46,0.08)] backdrop-blur-xl"
             >
               <div className="grid gap-1">
                 {navItems.map((item, index) => {
@@ -117,8 +117,8 @@ export function SiteHeader() {
                       ref={index === 0 ? firstMobileLinkRef : undefined}
                       href={item.href}
                       aria-current={current ? "page" : undefined}
-                      className={`rounded-[1.15rem] px-4 py-3 text-base font-medium text-[var(--text)] transition hover:bg-white ${
-                        current ? "bg-[var(--accent-soft)] text-[var(--accent)]" : ""
+                      className={`mobile-nav-link border-l-2 border-transparent px-4 py-3 text-base font-medium text-[var(--text)] transition hover:!text-[var(--accent)] ${
+                        current ? "!border-[var(--accent)] !text-[var(--accent)]" : ""
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >

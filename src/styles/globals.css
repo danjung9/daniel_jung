@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6f3ee;
-  --background-strong: #efe8df;
-  --surface: rgba(255, 255, 255, 0.78);
-  --surface-strong: rgba(255, 255, 255, 0.94);
-  --text: #1b2430;
-  --text-muted: #4e5a67;
-  --border: rgba(27, 36, 48, 0.12);
+  --background: #fdfdfc;
+  --background-strong: #f7f8fa;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --header-background: rgba(253, 253, 252, 0.92);
+  --text: #19232e;
+  --text-muted: #566472;
+  --border: rgba(25, 35, 46, 0.12);
   --accent: #0f766e;
   --accent-soft: rgba(15, 118, 110, 0.12);
-  --shadow: 0 24px 60px rgba(27, 36, 48, 0.08);
+  --shadow: 0 20px 48px rgba(25, 35, 46, 0.08);
 }
 
 * {
@@ -24,10 +25,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(15, 118, 110, 0.14), transparent 32%),
-    radial-gradient(circle at top right, rgba(180, 139, 70, 0.12), transparent 28%),
-    var(--background);
+  background: var(--background);
   color: var(--text);
   font-family: "Avenir Next", "Aptos", "Segoe UI", sans-serif;
   text-rendering: optimizeLegibility;
@@ -93,3 +91,17 @@ a {
   animation: fade-up 560ms ease both;
 }
 
+.nav-link:hover,
+.nav-link[aria-current="page"],
+.mobile-nav-link:hover,
+.mobile-nav-link[aria-current="page"] {
+  color: var(--accent);
+}
+
+.nav-link[aria-current="page"] {
+  border-color: var(--accent);
+}
+
+.mobile-nav-link[aria-current="page"] {
+  border-left-color: var(--accent);
+}
