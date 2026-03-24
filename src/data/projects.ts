@@ -95,7 +95,77 @@ export const projects: Project[] = [
     image: "/projects/shopping_lens.png",
     featured: true,
     status: "archived"
-  }
+  },
+  {
+    slug: "outfit-assistant",
+    title: "Outfit Assistant",
+    tagline: "AI wardrobe rating and outfit recommendation powered by vision models",
+    summary:
+      "Built an interactive computer-vision app that rates clothing items, auto-categorizes wardrobe pieces, and recommends pairings using image embeddings and color/style matching.",
+    description:
+      "Outfit Assistant is an AI-powered wardrobe analysis tool built for rapid experimentation with fashion and style data. The project combines a Gradio interface with a Python vision pipeline to let users upload wardrobe images, automatically score clothing items on a 1–100 scale, infer garment categories, and receive pairing recommendations. The recommendation flow blends CLIP-based image embeddings with complementary color and style heuristics, creating a practical end-to-end system that connects model inference, lightweight ranking logic, and user-facing interaction design.",
+    role: "Co-Builder",
+    teamSize: 2,
+    period: "2025",
+    stack: [
+      "Python",
+      "Gradio",
+      "PyTorch",
+      "Transformers",
+      "OpenCV",
+      "Hugging Face"
+    ],
+    highlights: [
+      "Built a wardrobe manager that ingests multiple clothing images and auto-generates ratings and categories.",
+      "Implemented a rate-and-recommend workflow that scores new items and returns matching pieces from a saved wardrobe.",
+      "Used CLIP embeddings together with complementary color and similarity-based matching for outfit recommendations.",
+      "Designed the interface to support upload, webcam, and clipboard image input for faster experimentation.",
+      "Packaged the project with Hugging Face-compatible dependencies and a live demo deployment path."
+    ],
+    impact: [
+      "Demonstrates the ability to turn computer-vision models into a usable interactive product.",
+      "Shows end-to-end ML systems thinking across inference, heuristics, UI, and deployment.",
+      "Presents a concrete example of applying multimodal AI to a consumer-facing recommendation experience."
+    ],
+    links: {
+      repo: "https://github.com/danjung9/outfit_assistant",
+      caseStudy: "https://huggingface.co/spaces/danjung9/P1-Outfit-Assistant"
+    },
+    image: "/projects/outfit.png",
+    featured: true,
+    status: "archived"
+  },
+  {
+    slug: "chemical-plant-design-project",
+    title: "Chemical Plant Design (ChE 613)",
+    tagline: "End-to-end chemical process design integrating thermodynamics, transport, and control",
+    summary: "Designed a large-scale chemical plant by integrating core chemical engineering principles including material and energy balances, thermodynamics, transport phenomena, reaction engineering, and process control.",
+    description: "This project is a comprehensive chemical plant design completed as part of a capstone ChE curriculum. It applies the five foundational pillars of chemical engineering: material and energy balances, thermodynamics, mass and heat transport, reactive process engineering, and process control. The work involved designing and analyzing unit operations such as compressors, heat exchangers, and reactors, while ensuring system-wide efficiency, feasibility, and controllability. The final design incorporates both steady-state analysis and control strategies, demonstrating the ability to translate theoretical principles into a functional, large-scale process system.",
+    role: "Team Member",
+    teamSize: 4,
+    period: "2023",
+    stack: ["Process Design", "Thermodynamics", "Mass & Heat Transfer", "Reaction Engineering", "Process Control"],
+    highlights: [
+      "Performed material and energy balances across complex process systems.",
+      "Applied thermodynamic models to determine system efficiency and equipment sizing.",
+      "Designed and analyzed heat exchangers and transport processes.",
+      "Developed reactor systems based on reaction engineering principles.",
+      "Implemented process control strategies using PID and system-level control design."
+    ],
+    impact: [
+      "Demonstrates ability to design and analyze a full-scale chemical process from first principles.",
+      "Integrates multiple engineering disciplines into a cohesive, production-ready system design.",
+      "Showcases readiness for real-world process engineering and plant design roles."
+    ],
+    links: {
+      repo: "",
+      caseStudy: ""
+    },
+    image: "/projects/ammoniaplant.jpeg",
+    featured: true,
+    status:"archived"
+  },
 ];
+
 
 export const featuredProjects = projects.filter((project) => project.featured);
