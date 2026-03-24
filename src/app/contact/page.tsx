@@ -34,7 +34,7 @@ export default function ContactPage() {
         </section>
 
         <section className="surface rounded-[2rem] p-8 md:p-10">
-          <h2 className="text-2xl font-semibold tracking-tight">Professional Profiles</h2>
+          <h2 className="display-heading text-2xl font-semibold tracking-tight">Professional Profiles</h2>
           <div className="mt-6 flex flex-wrap gap-4">
             {siteConfig.socials.map((social) => (
               <SocialLink key={social.label} label={social.label} href={social.href} />

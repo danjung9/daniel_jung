@@ -1,10 +1,25 @@
 import type { Metadata } from "next";
+import { IBM_Plex_Sans, Manrope } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { siteConfig } from "@/data/site";
 import { DEFAULT_OG_IMAGE, SITE_URL } from "@/lib/constants";
 import "@/styles/globals.css";
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+  weight: ["400", "500", "600", "700"]
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["600", "700", "800"]
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -55,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${ibmPlexSans.variable} ${manrope.variable}`}>
       <body className="antialiased">
         <div className="relative flex min-h-screen flex-col">
           <a

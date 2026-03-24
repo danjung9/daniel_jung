@@ -27,7 +27,7 @@ export default function AboutPage() {
 
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           <section className="surface rounded-[2rem] p-8">
-            <h2 className="text-2xl font-semibold tracking-tight">Experience</h2>
+            <h2 className="display-heading text-2xl font-semibold tracking-tight">Experience</h2>
             <div className="mt-6 space-y-5">
               {experience.map((item) => (
                 <ExperienceItem key={`${item.company}-${item.title}`} item={item} />
@@ -36,7 +36,7 @@ export default function AboutPage() {
           </section>
 
           <section className="surface rounded-[2rem] p-8">
-            <h2 className="text-2xl font-semibold tracking-tight">Strengths</h2>
+            <h2 className="display-heading text-2xl font-semibold tracking-tight">Strengths</h2>
             <div className="mt-6 space-y-6">
               {skills.map((group) => (
                 <div key={group.title}>
