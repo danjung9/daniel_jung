@@ -2,6 +2,7 @@ import Link from "next/link";
 import { siteConfig } from "../../data/site";
 import { Container } from "../layout/container";
 import { Section } from "../layout/section";
+import { SocialLink } from "../ui/social-link";
 
 export function ContactCta() {
   return (
@@ -39,15 +40,7 @@ export function ContactCta() {
 
           <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-[var(--text-muted)]">
             {siteConfig.socials.map((social) => (
-              <Link
-                key={social.label}
-                href={social.href}
-                target={social.href.startsWith("http") ? "_blank" : undefined}
-                rel={social.href.startsWith("http") ? "noreferrer" : undefined}
-                className="font-medium text-[var(--text)] underline decoration-[var(--border)] underline-offset-4 hover:decoration-[var(--accent)]"
-              >
-                {social.label}
-              </Link>
+              <SocialLink key={social.label} label={social.label} href={social.href} />
             ))}
             <span>{siteConfig.location}</span>
           </div>

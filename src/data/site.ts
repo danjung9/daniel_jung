@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   title: "AI / ML Engineer",
   headline: "Applied AI / ML engineer with systems and robotics-adjacent depth",
   email: "jung.danielt@gmail.com",
-  location: "Pittsburgh, Pennsylvania",
+  location: "",
   description:
     "Applied AI / ML engineer at the intersection of computer vision, document intelligence, and systems-minded software.",
   valueProposition:

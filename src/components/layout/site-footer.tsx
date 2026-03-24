@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { siteConfig } from "../../data/site";
+import { SocialLink } from "../ui/social-link";
 import { Container } from "./container";
 
 export function SiteFooter() {
@@ -13,15 +13,7 @@ export function SiteFooter() {
         </p>
         <div className="flex flex-wrap items-center gap-4">
           {siteConfig.socials.map((social) => (
-            <Link
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium text-[var(--text)] underline decoration-[var(--border)] underline-offset-4 hover:decoration-[var(--accent)]"
-            >
-              {social.label}
-            </Link>
+            <SocialLink key={social.label} label={social.label} href={social.href} />
           ))}
         </div>
       </Container>
