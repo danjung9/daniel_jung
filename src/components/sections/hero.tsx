@@ -25,8 +25,8 @@ const heroProof = [
 
 export function Hero() {
   return (
-    <Section className="overflow-hidden border-b border-[var(--border)] bg-[var(--background)] py-8 sm:py-12 lg:min-h-[calc(100svh-4rem)] lg:py-14">
-      <Container className="relative flex h-full items-center">
+    <Section className="overflow-hidden border-b border-[var(--border)] bg-[var(--background)] py-8 sm:py-12 lg:h-[calc(100svh-4rem)] lg:min-h-[42rem] lg:py-14">
+      <Container className="relative lg:flex lg:h-full lg:items-center">
         <div className="grid w-full gap-10 lg:grid-cols-[minmax(0,1.18fr)_18rem] lg:items-center lg:gap-12 xl:grid-cols-[minmax(0,1.2fr)_19rem]">
           <div className="max-w-3xl">
             <div
