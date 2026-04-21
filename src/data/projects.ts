@@ -2,6 +2,37 @@ import type { Project } from "../types/portfolio";
 
 export const projects: Project[] = [
   {
+    slug: "emio-pick-place-imitation-lab",
+    title: "Emio Pick-and-Place Imitation Lab",
+    tagline: "SOFA robotics lab for pick-and-place imitation learning and policy evaluation",
+    summary:
+      "Built an Emio-based pick-and-place imitation-learning lab that collects scripted expert rollouts, trains an implicit behavior-cloning policy, and evaluates learned controllers in closed loop.",
+    description:
+      "This project turns a SOFA Robotics pick-and-place scene into a complete Compliance Lab Platform workflow for imitation learning. The system keeps the task scene as the source of truth across scripted expert behavior, rollout collection, policy training, closed-loop evaluation, and interactive inspection. It trains a state-only implicit behavior-cloning policy, uses bounded Cross-Entropy Method search to select low-energy motor commands at inference time, and reports experimental metrics across policy rollouts for analyzing robustness and failure modes.",
+    role: "Co-Builder",
+    teamSize: 2,
+    period: "2026",
+    stack: ["Python", "SOFA Robotics", "Emio", "PyTorch", "Imitation Learning", "CEM"],
+    highlights: [
+      "Built a scripted expert pipeline that performs approach, grasp, lift, place, and retreat phases in a shared SOFA scene.",
+      "Recorded expert rollout episodes and flattened state-action pairs for training an implicit behavior-cloning policy.",
+      "Implemented bounded Cross-Entropy Method action search, action normalization, and rollout smoothing for closed-loop policy execution.",
+      "Added policy inspection and evaluation scripts to compare learned behavior against expert demonstrations inside the lab workflow."
+    ],
+    impact: [
+      "Evaluated the learned controller over 50 episodes with 18% total success, 0% dropped-object rate, and about 31.4 mm final place error.",
+      "Created a teaching-oriented robotics workflow that connects simulation, dataset design, optimization, policy learning, and failure analysis."
+    ],
+    links: {
+      repo: "https://github.com/monish-piraimudi/24786_project_pick_and_place_with_pose_estimation",
+      caseStudy: "/projects/emio-pick-place-imitation-lab"
+    },
+    image: "/projects/emio-pick-place-imitation-lab.png",
+    video: "/projects/emio-pick-place-imitation-lab.mp4",
+    featured: true,
+    status: "in-progress"
+  },
+  {
     slug: "meetpeople-recommendation-system",
     title: "MeetPeople",
     tagline: "Recommendation-system demo with an explainable \"For You\" ranking pipeline",

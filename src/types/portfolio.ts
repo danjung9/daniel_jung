@@ -20,6 +20,7 @@ export interface Project {
   impact?: string[];
   links: ProjectLinks;
   image: string;
+  video?: string;
   featured: boolean;
   status?: ProjectStatus;
 }

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ProjectMedia } from "@/components/ui/project-media";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { projects } from "@/data/projects";
 import { buildMetadata } from "@/lib/metadata";
@@ -75,13 +75,11 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           <article className="space-y-8">
             <div className="surface overflow-hidden rounded-[2rem] p-3">
               <div className="overflow-hidden rounded-[1.5rem] border border-[var(--border)]">
-                <Image
-                  src={project.image}
-                  alt={`${project.title} preview`}
-                  width={1600}
-                  height={960}
-                  className="h-auto w-full object-cover"
+                <ProjectMedia
+                  project={project}
+                  className="max-h-[70vh] w-full bg-black object-contain"
                   priority
+                  controls={Boolean(project.video)}
                 />
               </div>
             </div>
@@ -181,4 +179,3 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
     </Section>
   );
 }
-

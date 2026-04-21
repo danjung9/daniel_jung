@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "../../types/portfolio";
 import { Badge } from "./badge";
 import { Card } from "./card";
+import { ProjectMedia } from "./project-media";
 
 interface ProjectCardProps {
   project: Project;
@@ -21,11 +21,8 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
           className="flex h-full cursor-pointer flex-col focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4"
         >
           <div className="border-b border-[var(--border)] bg-[var(--background-strong)]">
-            <Image
-              src={project.image}
-              alt={`${project.title} preview`}
-              width={1200}
-              height={630}
+            <ProjectMedia
+              project={project}
               className="h-48 w-full object-cover"
             />
           </div>
@@ -72,12 +69,9 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
         className="-m-2 flex cursor-pointer flex-col gap-5 rounded-[1.5rem] p-2 focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4"
       >
         <div className="overflow-hidden rounded-[1.25rem] border border-[var(--border)] transition-colors duration-200 group-hover:border-[color:rgba(15,118,110,0.28)] group-focus-within:border-[color:rgba(15,118,110,0.32)]">
-          <Image
-            src={project.image}
-            alt={`${project.title} preview`}
-            width={1200}
-            height={630}
-            className="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.015] group-focus-within:scale-[1.015]"
+          <ProjectMedia
+            project={project}
+            className="aspect-video h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.015] group-focus-within:scale-[1.015]"
           />
         </div>
 
