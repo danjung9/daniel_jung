@@ -34,7 +34,7 @@ export const projects: Project[] = [
         },
         {
           label: "PowerPoint",
-          href: "/projects/emio-pick-place-powerpoint.pptx",
+          href: "/projects/emio-pick-place-powerpoint.pdf",
           kind: "powerpoint"
         }
       ]
