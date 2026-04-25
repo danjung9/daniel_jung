@@ -20,7 +20,7 @@ export const projects: Project[] = [
       "Added policy inspection and evaluation scripts to compare learned behavior against expert demonstrations inside the lab workflow."
     ],
     impact: [
-      "Evaluated the learned controller over 50 episodes with 18% total success, 0% dropped-object rate, and about 31.4 mm final place error.",
+      "Evaluated the learned controller over 100 episodes with 100% total success, 0% dropped-object rate, and about 5.67 mm final place error.",
       "Created a teaching-oriented robotics workflow that connects simulation, dataset design, optimization, policy learning, and failure analysis."
     ],
     links: {
