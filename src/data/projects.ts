@@ -70,7 +70,7 @@ export const projects: Project[] = [
       caseStudy: "/projects/meetpeople-recommendation-system"
     },
     image: "/projects/meetpeople.png",
-    featured: true,
+    featured: false,
     status: "live"
   },
   {
@@ -99,7 +99,7 @@ export const projects: Project[] = [
       caseStudy: "/projects/requirements-assistant"
     },
     image: "/projects/requirements-assistant.png",
-    featured: true,
+    featured: false,
     status: "live"
   },
   {

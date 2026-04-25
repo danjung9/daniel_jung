@@ -11,6 +11,10 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, variant = "default" }: ProjectCardProps) {
   const isCompact = variant === "compact";
+  const compactMediaClass = project.video ? "h-48 w-full object-contain" : "h-48 w-full object-cover";
+  const defaultMediaClass = project.video
+    ? "aspect-video h-auto w-full object-contain transition-transform duration-300 group-hover:scale-[1.015] group-focus-within:scale-[1.015]"
+    : "aspect-video h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.015] group-focus-within:scale-[1.015]";
 
   if (isCompact) {
     return (
@@ -23,7 +27,7 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
           <div className="border-b border-[var(--border)] bg-[var(--background-strong)]">
             <ProjectMedia
               project={project}
-              className="h-48 w-full object-cover"
+              className={compactMediaClass}
             />
           </div>
 
@@ -68,10 +72,10 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
         aria-label={`View case study for ${project.title}`}
         className="-m-2 flex cursor-pointer flex-col gap-5 rounded-[1.5rem] p-2 focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4"
       >
-        <div className="overflow-hidden rounded-[1.25rem] border border-[var(--border)] transition-colors duration-200 group-hover:border-[color:rgba(15,118,110,0.28)] group-focus-within:border-[color:rgba(15,118,110,0.32)]">
+        <div className="overflow-hidden rounded-[1.25rem] border border-[var(--border)] bg-[var(--background-strong)] transition-colors duration-200 group-hover:border-[color:rgba(15,118,110,0.28)] group-focus-within:border-[color:rgba(15,118,110,0.32)]">
           <ProjectMedia
             project={project}
-            className="aspect-video h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.015] group-focus-within:scale-[1.015]"
+            className={defaultMediaClass}
           />
         </div>
 
