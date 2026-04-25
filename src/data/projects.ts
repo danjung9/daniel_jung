@@ -25,7 +25,19 @@ export const projects: Project[] = [
     ],
     links: {
       repo: "https://github.com/monish-piraimudi/24786_project_pick_and_place_with_pose_estimation",
-      caseStudy: "/projects/emio-pick-place-imitation-lab"
+      caseStudy: "/projects/emio-pick-place-imitation-lab",
+      attachments: [
+        {
+          label: "Report",
+          href: "/projects/emio-pick-place-report.pdf",
+          kind: "report"
+        },
+        {
+          label: "PowerPoint",
+          href: "/projects/emio-pick-place-powerpoint.pptx",
+          kind: "powerpoint"
+        }
+      ]
     },
     image: "/projects/emio-pick-place-imitation-lab.png",
     video: "/projects/emio-pick-place-imitation-lab.mp4",

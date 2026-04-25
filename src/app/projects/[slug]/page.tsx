@@ -171,6 +171,16 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                     Case Study
                   </Button>
                 ) : null}
+                {project.links.attachments?.map((attachment) => (
+                  <Button
+                    key={`${attachment.label}-${attachment.href}`}
+                    href={attachment.href}
+                    variant="secondary"
+                    external
+                  >
+                    {attachment.label}
+                  </Button>
+                ))}
               </div>
             </section>
           </aside>

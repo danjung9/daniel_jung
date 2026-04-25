@@ -1,9 +1,18 @@
 export type ProjectStatus = "live" | "in-progress" | "archived";
 
+export type ProjectAttachmentKind = "report" | "powerpoint" | "file";
+
+export interface ProjectAttachment {
+  label: string;
+  href: string;
+  kind?: ProjectAttachmentKind;
+}
+
 export interface ProjectLinks {
   live?: string;
   repo?: string;
   caseStudy?: string;
+  attachments?: ProjectAttachment[];
 }
 
 export interface Project {
