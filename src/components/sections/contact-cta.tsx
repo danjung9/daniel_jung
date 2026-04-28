@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { siteConfig } from "../../data/site";
 import { Container } from "../layout/container";
 import { Section } from "../layout/section";
+import { Button } from "../ui/button";
 import { SocialLink } from "../ui/social-link";
 
 export function ContactCta() {
@@ -23,18 +23,12 @@ export function ContactCta() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Link
-                href={`mailto:${siteConfig.email}`}
-                className="inline-flex h-11 items-center justify-center border border-[var(--text)] bg-[var(--text)] px-5 text-sm font-semibold !text-white transition hover:border-[var(--accent)] hover:bg-[var(--accent)]"
-              >
+              <Button href={`mailto:${siteConfig.email}`}>
                 Email
-              </Link>
-              <Link
-                href={siteConfig.resumeUrl}
-                className="inline-flex h-11 items-center justify-center border border-[var(--border)] bg-white px-5 text-sm font-semibold text-[var(--text)] transition hover:border-[var(--text)]"
-              >
+              </Button>
+              <Button href={siteConfig.resumeUrl} variant="secondary">
                 Resume
-              </Link>
+              </Button>
             </div>
           </div>
 

@@ -126,6 +126,53 @@ export const projects: Project[] = [
     status: "live"
   },
   {
+    slug: "fine-tuning-to-beat-llama-3",
+    title: "Fine-Tuning to Beat Llama 3",
+    tagline: "Efficient LLM fine-tuning study comparing Mistral-7B against Llama 3 70B",
+    summary:
+      "Co-authored a CMU GenAI course project evaluating whether parameter-efficient fine-tuning and retrieval-augmented demonstrations can help smaller LLMs outperform larger models on specialized tasks.",
+    description:
+      "This project investigates whether smaller language models can compete with much larger models when the training and prompting strategy is targeted to the domain. The team compared Mistral-7B against Llama 3 70B across Healthcare Magic, BeerAdvocate, and GSM8K tasks, evaluating zero-shot baselines, QLoRA fine-tuning, demonstration-retrieved in-context learning, and combined approaches. The work shows how model adaptation strategy, dataset structure, and evaluation design shape whether a smaller model can become the better practical system.",
+    problem:
+      "Large LLMs are expensive to run and fine-tune, so specialized teams need evidence for when smaller models can compete through targeted adaptation.",
+    contribution:
+      "Co-authored the project and contributed to the implementation and evaluation of QLoRA fine-tuning, Dr.ICL retrieval demonstrations, dataset preparation, and model comparisons.",
+    outcome:
+      "Built a comparative evaluation workflow showing that efficient fine-tuning can make smaller models stronger than larger baselines on selected domain tasks.",
+    metric: "Fine-tuned Mistral-7B outperformed Llama 3 70B on GSM8K and BeerAdvocate",
+    recruiterSignal: "Efficient LLM fine-tuning + evaluation",
+    role: "Co-Author / Implementer",
+    teamSize: 3,
+    period: "2025",
+    stack: [
+      "Python",
+      "Hugging Face",
+      "Transformers",
+      "PEFT",
+      "QLoRA",
+      "Mistral-7B",
+      "Llama 3 70B"
+    ],
+    highlights: [
+      "Evaluated Mistral-7B and Llama 3 70B across Healthcare Magic, BeerAdvocate, and GSM8K tasks.",
+      "Implemented QLoRA-based parameter-efficient fine-tuning with Hugging Face tooling and PEFT adapters.",
+      "Tested demonstration-retrieved in-context learning by retrieving semantically similar examples for each prompt.",
+      "Compared zero-shot, ICL, QLoRA, and combined strategies to identify when each method improved task performance.",
+      "Built dataset-specific evaluation logic for classification, math-answer accuracy, and healthcare response quality."
+    ],
+    impact: [
+      "Showed that a smaller fine-tuned Mistral-7B model can outperform Llama 3 70B on GSM8K and BeerAdvocate.",
+      "Demonstrates practical judgment around model selection, adaptation cost, domain data, and evaluation methodology."
+    ],
+    links: {
+      repo: "https://github.com/CMUZrz/FineTuning_to_beat_llama_3",
+      caseStudy: "/projects/fine-tuning-to-beat-llama-3"
+    },
+    image: "/projects/fine-tuning-to-beat-llama-3.svg",
+    featured: false,
+    status: "archived"
+  },
+  {
     slug: "ai-shopping-glasses",
     title: "AI Shopping Assistant Glasses",
     tagline: "Real-time in-store product intelligence using smart glasses and multimodal AI",
@@ -217,7 +264,7 @@ export const projects: Project[] = [
   },
   {
     slug: "chemical-plant-design-project",
-    title: "Chemical Plant Design (ChE 613)",
+    title: "Designing Ammonia Production",
     tagline: "End-to-end chemical process design integrating thermodynamics, transport, and control",
     summary: "Designed a large-scale chemical plant by integrating core chemical engineering principles including material and energy balances, thermodynamics, transport phenomena, reaction engineering, and process control.",
     description: "This project is a comprehensive chemical plant design completed as part of a capstone ChE curriculum. It applies the five foundational pillars of chemical engineering: material and energy balances, thermodynamics, mass and heat transport, reactive process engineering, and process control. The work involved designing and analyzing unit operations such as compressors, heat exchangers, and reactors, while ensuring system-wide efficiency, feasibility, and controllability. The final design incorporates both steady-state analysis and control strategies, demonstrating the ability to translate theoretical principles into a functional, large-scale process system.",
@@ -256,3 +303,14 @@ export const projects: Project[] = [
 
 
 export const featuredProjects = projects.filter((project) => project.featured);
+
+export function getProjectBySlug(slug: string) {
+  return projects.find((project) => project.slug === slug);
+}
+
+export function getFeaturedProjectsBySlug(slugs: readonly string[]) {
+  return slugs.flatMap((slug) => {
+    const project = featuredProjects.find((candidate) => candidate.slug === slug);
+    return project ? [project] : [];
+  });
+}
