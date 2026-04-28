@@ -56,9 +56,13 @@ export function SiteHeader() {
       <Container className="relative flex h-16 items-center justify-between py-3 sm:h-18 sm:py-4">
         <Link
           href="/"
-          className="whitespace-nowrap text-sm font-semibold tracking-[0.08em] text-[var(--text)]"
+          className="group inline-flex items-center gap-2 whitespace-nowrap text-sm font-semibold tracking-[0.03em] text-[var(--text)]"
         >
-          {siteConfig.name}
+          <span
+            aria-hidden="true"
+            className="h-2 w-2 rounded-full bg-[var(--accent)] transition-transform duration-200 group-hover:scale-125"
+          />
+          <span>{siteConfig.name}</span>
         </Link>
 
         <button
@@ -66,7 +70,7 @@ export function SiteHeader() {
           aria-expanded={isMenuOpen}
           aria-controls={menuId}
           aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-[4px] border border-[var(--border)] bg-white text-[var(--text)] shadow-[0_8px_20px_rgba(25,35,46,0.05)] md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/75 text-[var(--text)] shadow-[0_10px_26px_rgba(16,24,32,0.06)] ring-1 ring-[var(--border)] transition hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] md:hidden"
           onClick={() => setIsMenuOpen((open) => !open)}
         >
           <span aria-hidden="true" className="flex flex-col gap-1.5">
@@ -108,7 +112,7 @@ export function SiteHeader() {
             <nav
               id={menuId}
               aria-label="Mobile"
-              className="overflow-hidden border border-[var(--border)] bg-[var(--surface-strong)] p-2 shadow-[0_20px_48px_rgba(25,35,46,0.08)] backdrop-blur-xl"
+              className="overflow-hidden rounded-[18px] border border-[var(--border)] bg-[var(--surface-strong)] p-2 shadow-[0_20px_48px_rgba(25,35,46,0.08)] backdrop-blur-xl"
             >
               <div className="grid gap-1">
                 {navItems.map((item, index) => {
@@ -123,8 +127,8 @@ export function SiteHeader() {
                       ref={index === 0 ? firstMobileLinkRef : undefined}
                       href={item.href}
                       aria-current={current ? "page" : undefined}
-                      className={`mobile-nav-link border-l-2 border-transparent px-4 py-3 text-base font-medium text-[var(--text)] transition hover:!text-[var(--accent)] ${
-                        current ? "!border-[var(--accent)] !text-[var(--accent)]" : ""
+                      className={`mobile-nav-link rounded-full px-4 py-3 text-base font-medium text-[var(--text-muted)] transition hover:bg-[var(--accent-soft)] hover:!text-[var(--text)] ${
+                        current ? "bg-[var(--accent-soft)] !text-[var(--accent)]" : ""
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >

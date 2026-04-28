@@ -117,11 +117,3 @@ a {
 .mobile-nav-link[aria-current="page"] {
   color: var(--accent);
 }
-
-.nav-link[aria-current="page"] {
-  border-color: var(--accent);
-}
-
-.mobile-nav-link[aria-current="page"] {
-  border-left-color: var(--accent);
-}
