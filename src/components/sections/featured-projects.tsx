@@ -1,16 +1,13 @@
 import Link from "next/link";
-import { featuredProjects } from "../../data/projects";
+import { getFeaturedProjectsBySlug } from "../../data/projects";
 import { Container } from "../layout/container";
 import { Section } from "../layout/section";
 import { ProjectCard } from "../ui/project-card";
 
-const homepageFeaturedProjects = [
+const homepageFeaturedProjects = getFeaturedProjectsBySlug([
   "emio-pick-place-imitation-lab",
   "ai-shopping-glasses"
-].flatMap((slug) => {
-  const project = featuredProjects.find((candidate) => candidate.slug === slug);
-  return project ? [project] : [];
-});
+]);
 
 export function FeaturedProjects() {
   return (

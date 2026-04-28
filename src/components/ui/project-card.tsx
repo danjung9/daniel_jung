@@ -65,83 +65,35 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
 
   if (isIndex) {
     return (
-      <article className="group border-t border-[var(--border)] transition-colors duration-200 hover:border-[var(--text)]">
-        <div className="grid gap-5 py-6 md:grid-cols-[13rem_minmax(0,1fr)] md:items-start lg:grid-cols-[16rem_minmax(0,1fr)]">
-          <Link
-            href={`/projects/${project.slug}`}
-            aria-label={`View case study for ${project.title}`}
-            className="block overflow-hidden border border-[var(--border)] bg-[var(--background-strong)] focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4"
-          >
+      <article className="group">
+        <Link
+          href={`/projects/${project.slug}`}
+          aria-label={`View case study for ${project.title}`}
+          className="block space-y-5 focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4"
+        >
+          <div className="overflow-hidden border border-[var(--border)] bg-[var(--background-strong)] transition-colors duration-200 group-hover:border-[var(--accent)] group-focus-within:border-[var(--accent)]">
             <ProjectMedia
               project={project}
-              className="h-40 w-full object-cover md:h-36 lg:h-40"
+              className="aspect-[16/10] h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.015] group-focus-within:scale-[1.015]"
             />
-          </Link>
+          </div>
 
-          <div className="min-w-0 space-y-3">
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">
-              <span>{project.period}</span>
-              <span aria-hidden="true">/</span>
-              <span>{project.status ?? "live"}</span>
-            </div>
+          <div className="space-y-3">
+            <h3 className="text-2xl font-semibold leading-tight text-[var(--text)] transition-colors duration-200 group-hover:text-[var(--accent)] group-focus-within:text-[var(--accent)] sm:text-3xl">
+              {project.title}
+            </h3>
 
-            <div className="space-y-2">
-              <h3 className="text-2xl font-semibold text-[var(--text)]">
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="transition-colors duration-200 hover:text-[var(--accent)] focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4"
-                >
-                  {project.title}
-                </Link>
-              </h3>
-              <p className="text-sm font-medium text-[var(--accent)]">
+            <div className="border-t border-[var(--border)] pt-3">
+              <p className="text-sm leading-6 text-[var(--text-muted)]">
                 {project.recruiterSignal ?? project.tagline}
+                <span className="px-2 text-[var(--border-strong)]" aria-hidden="true">
+                  /
+                </span>
+                {project.period}
               </p>
-            </div>
-
-            {outcome ? (
-              <p className="max-w-3xl text-sm leading-7 text-[var(--text-muted)]">
-                {outcome}
-              </p>
-            ) : null}
-
-            <div className="flex flex-wrap gap-2">
-              {project.stack.slice(0, 3).map((tech) => (
-                <Badge key={tech}>{tech}</Badge>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-1 text-sm font-semibold">
-              <Link
-                href={`/projects/${project.slug}`}
-                className="inline-flex items-center gap-2 text-[var(--text)] transition hover:text-[var(--accent)] focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4"
-              >
-                <span>Case study</span>
-                <span aria-hidden="true">→</span>
-              </Link>
-              {project.links.repo ? (
-                <Link
-                  href={project.links.repo}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-[var(--text-muted)] underline decoration-[var(--border)] underline-offset-4 hover:text-[var(--text)] hover:decoration-[var(--accent)]"
-                >
-                  GitHub
-                </Link>
-              ) : null}
-              {project.links.live ? (
-                <Link
-                  href={project.links.live}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-[var(--text-muted)] underline decoration-[var(--border)] underline-offset-4 hover:text-[var(--text)] hover:decoration-[var(--accent)]"
-                >
-                  Demo
-                </Link>
-              ) : null}
             </div>
           </div>
-        </div>
+        </Link>
       </article>
     );
   }

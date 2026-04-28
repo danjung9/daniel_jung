@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ProjectMedia } from "@/components/ui/project-media";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { projects } from "@/data/projects";
+import { getProjectBySlug, projects } from "@/data/projects";
 import { buildMetadata } from "@/lib/metadata";
 import { SITE_URL } from "@/lib/constants";
 
@@ -25,7 +25,7 @@ export async function generateMetadata({
   params
 }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = projects.find((item) => item.slug === slug);
+  const project = getProjectBySlug(slug);
 
   if (!project) {
     return buildMetadata({
@@ -43,7 +43,7 @@ export async function generateMetadata({
 
 export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = projects.find((item) => item.slug === slug);
+  const project = getProjectBySlug(slug);
 
   if (!project) {
     notFound();

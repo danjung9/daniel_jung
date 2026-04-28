@@ -19,10 +19,10 @@ export default function ProjectsPage() {
       <Container className="space-y-12">
         <SectionHeading
           eyebrow="Selected Work"
-          title="Project case studies that reflect applied AI and systems thinking."
-          description="Each project page is written to make the problem, technical approach, stack, and engineering relevance easy to scan quickly."
+          title="A visual index of applied AI systems."
+          description="Browse the work quickly, then open a case study for the technical details."
         />
-        <div className="space-y-2">
+        <div className="grid gap-x-8 gap-y-12 md:grid-cols-2">
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} variant="index" />
           ))}

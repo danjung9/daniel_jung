@@ -5,6 +5,7 @@ import { Playfair_Display } from "next/font/google";
 import { siteConfig } from "../../data/site";
 import { Container } from "../layout/container";
 import { Section } from "../layout/section";
+import { Button } from "../ui/button";
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -13,22 +14,10 @@ const playfairDisplay = Playfair_Display({
 });
 
 const hero = {
-  proof: ["Applied AI Systems", "CMU MS · Systems Engineer II · Graduate Research"],
   title: "I'm Daniel, an AI engineer that ships.",
-  domains: "Vision · Document AI · Robotics · Recommender systems",
+  domains: "Computer Vision · Applied AI · Robotics",
   body: "I turn research-heavy AI ideas into usable software across perception, retrieval, robotics, and engineering workflows."
 };
-
-const ctaBase = "inline-flex h-11 items-center justify-center px-5 text-sm font-semibold transition focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4 sm:text-base";
-const ctaClass = {
-  primary: `${ctaBase} border border-[var(--accent)] bg-[var(--accent)] !text-white hover:border-[var(--text)] hover:bg-[var(--text)]`,
-  secondary: `${ctaBase} border border-[var(--border)] bg-white/70 text-[var(--text)] hover:border-[var(--accent)] hover:bg-white`
-};
-
-const heroLinks = [
-  { href: "/projects", label: "View Case Studies", className: ctaClass.primary },
-  { href: siteConfig.resumeUrl, label: "Open Resume", className: ctaClass.secondary }
-];
 
 export function Hero() {
   return (
@@ -52,12 +41,6 @@ export function Hero() {
             className="animate-fade-up max-w-4xl"
             style={{ animationDelay: "80ms" }}
           >
-            <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--accent)] sm:text-[0.78rem]">
-              <span>{hero.proof[0]}</span>
-              <span className="hidden h-px w-12 bg-[var(--accent)] sm:block" />
-              <span>{hero.proof[1]}</span>
-            </div>
-
             <div className="space-y-4">
               <h1 className={`${playfairDisplay.className} max-w-[58rem] text-[1.95rem] leading-[1.02] text-[var(--text)] sm:text-[2.55rem] md:text-[2.9rem] lg:text-[3.1rem] xl:text-[3.95rem]`}>
                 {hero.title}
@@ -71,19 +54,35 @@ export function Hero() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              {heroLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={link.className}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <SplitCtaLink href="/projects">Check out my work</SplitCtaLink>
+              <Button href={siteConfig.resumeUrl} variant="secondary" size="lg" className="sm:h-14">
+                Open Resume
+              </Button>
             </div>
           </div>
         </div>
       </Container>
     </Section>
+  );
+}
+
+function SplitCtaLink({ children, href }: { children: string; href: string }) {
+  return (
+    <Link
+      href={href}
+      className="group inline-flex items-center gap-2 text-base font-semibold text-[var(--text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4"
+    >
+      <span
+        aria-hidden="true"
+        className="z-10 flex h-12 w-12 items-center justify-center rounded-[8px] border border-transparent bg-white/70 text-3xl leading-none shadow-[0_10px_24px_rgba(16,24,32,0.04)] transition-[background-color,border-radius,color] duration-[575ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:rounded-r-none group-hover:bg-[var(--text)] group-hover:text-white group-focus-visible:rounded-r-none group-focus-visible:bg-[var(--text)] group-focus-visible:text-white sm:h-14 sm:w-14"
+      >
+        <span className="transition-transform duration-[575ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-focus-visible:translate-x-0.5 group-focus-visible:translate-y-0.5">
+          ↳
+        </span>
+      </span>
+      <span className="flex h-12 will-change-transform items-center rounded-[8px] border border-[var(--border)] bg-white/75 px-5 shadow-[0_10px_24px_rgba(16,24,32,0.04)] transition-[transform,background-color,border-color,border-radius,color] duration-[575ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-[0.6rem] group-hover:rounded-l-none group-hover:border-transparent group-hover:bg-[var(--text)] group-hover:text-white group-focus-visible:-translate-x-[0.6rem] group-focus-visible:rounded-l-none group-focus-visible:border-transparent group-focus-visible:bg-[var(--text)] group-focus-visible:text-white sm:h-14 sm:px-8 sm:text-xl">
+        {children}
+      </span>
+    </Link>
   );
 }
