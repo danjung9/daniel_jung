@@ -4,16 +4,15 @@ import { Container } from "../layout/container";
 import { Section } from "../layout/section";
 import { ProjectCard } from "../ui/project-card";
 
-const homepageFeaturedSlugs = [
+const homepageFeaturedProjects = [
   "emio-pick-place-imitation-lab",
   "ai-shopping-glasses"
-];
+].flatMap((slug) => {
+  const project = featuredProjects.find((candidate) => candidate.slug === slug);
+  return project ? [project] : [];
+});
 
 export function FeaturedProjects() {
-  const homepageFeaturedProjects = homepageFeaturedSlugs
-    .map((slug) => featuredProjects.find((project) => project.slug === slug))
-    .filter((project): project is NonNullable<typeof project> => Boolean(project));
-
   return (
     <Section id="featured-projects" className="border-b border-[var(--border)] bg-white py-10 sm:py-12 lg:py-16">
       <Container>

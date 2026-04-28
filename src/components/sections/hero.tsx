@@ -12,6 +12,24 @@ const playfairDisplay = Playfair_Display({
   weight: ["500", "600"]
 });
 
+const hero = {
+  proof: ["Applied AI Systems", "CMU MS · Systems Engineer II · Graduate Research"],
+  title: "I'm Daniel, an AI engineer that ships.",
+  domains: "Vision · Document AI · Robotics · Recommender systems",
+  body: "I turn research-heavy AI ideas into usable software across perception, retrieval, robotics, and engineering workflows."
+};
+
+const ctaBase = "inline-flex h-11 items-center justify-center px-5 text-sm font-semibold transition focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4 sm:text-base";
+const ctaClass = {
+  primary: `${ctaBase} border border-[var(--accent)] bg-[var(--accent)] !text-white hover:border-[var(--text)] hover:bg-[var(--text)]`,
+  secondary: `${ctaBase} border border-[var(--border)] bg-white/70 text-[var(--text)] hover:border-[var(--accent)] hover:bg-white`
+};
+
+const heroLinks = [
+  { href: "/projects", label: "View Case Studies", className: ctaClass.primary },
+  { href: siteConfig.resumeUrl, label: "Open Resume", className: ctaClass.secondary }
+];
+
 export function Hero() {
   return (
     <Section className="relative overflow-hidden border-b border-[var(--border)] bg-[var(--background)] !py-0">
@@ -35,36 +53,33 @@ export function Hero() {
             style={{ animationDelay: "80ms" }}
           >
             <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--accent)] sm:text-[0.78rem]">
-              <span>Applied AI Systems</span>
+              <span>{hero.proof[0]}</span>
               <span className="hidden h-px w-12 bg-[var(--accent)] sm:block" />
-              <span>CMU MS · Systems Engineer II · Graduate Research</span>
+              <span>{hero.proof[1]}</span>
             </div>
 
             <div className="space-y-4">
               <h1 className={`${playfairDisplay.className} max-w-[58rem] text-[1.95rem] leading-[1.02] text-[var(--text)] sm:text-[2.55rem] md:text-[2.9rem] lg:text-[3.1rem] xl:text-[3.95rem]`}>
-                I&apos;m Daniel, an AI engineer that ships.
+                {hero.title}
               </h1>
               <p className="max-w-2xl text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent)] sm:text-[0.8rem]">
-                Vision · Document AI · Robotics · Recommender systems
+                {hero.domains}
               </p>
               <p className="max-w-xl text-base leading-7 text-[var(--text-muted)] sm:text-lg sm:leading-8">
-                I turn research-heavy AI ideas into usable software across perception, retrieval, robotics, and engineering workflows.
+                {hero.body}
               </p>
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href="/projects"
-                className="inline-flex h-11 items-center justify-center border border-[var(--accent)] bg-[var(--accent)] px-5 text-sm font-semibold !text-white transition hover:border-[var(--text)] hover:bg-[var(--text)] focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4 sm:text-base"
-              >
-                View Case Studies
-              </Link>
-              <Link
-                href={siteConfig.resumeUrl}
-                className="inline-flex h-11 items-center justify-center border border-[var(--border)] bg-white/70 px-5 text-sm font-semibold text-[var(--text)] transition hover:border-[var(--accent)] hover:bg-white focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4 sm:text-base"
-              >
-                Open Resume
-              </Link>
+              {heroLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={link.className}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
