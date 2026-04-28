@@ -29,10 +29,10 @@ export function Hero() {
           fill
           priority
           sizes="46vw"
-          className="object-cover object-[74%_22%] opacity-[0.8] saturate-[0.8]"
+          className="object-cover object-[60%_22%] opacity-[1] saturate-[1]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--background)_0%,rgba(247,249,252,0.9)_18%,rgba(247,249,252,0.28)_52%,rgba(247,249,252,0.08)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,249,252,0.18)_0%,rgba(247,249,252,0)_34%,var(--background)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--background)_0%,rgba(247,249,252,0.78)_20%,rgba(247,249,252,0.18)_52%,rgba(247,249,252,0.03)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,249,252,0.06)_0%,rgba(247,249,252,0)_38%,rgba(247,249,252,0.16)_100%)]" />
       </div>
 
       <Container className="relative">
