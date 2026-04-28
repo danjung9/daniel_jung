@@ -12,37 +12,32 @@ const playfairDisplay = Playfair_Display({
   weight: ["500", "600"]
 });
 
-const heroProof = [
-  {
-    label: "Research",
-    value: "CMU MS + graduate research"
-  },
-  {
-    label: "Industry",
-    value: "Systems Engineer II at Westinghouse"
-  }
-];
-
 export function Hero() {
   return (
-    <Section className="overflow-hidden border-b border-[var(--border)] bg-[var(--background)] py-8 sm:py-12 lg:h-[calc(100svh-4rem)] lg:min-h-[42rem] lg:py-14">
+    <Section className="overflow-hidden border-b border-[var(--border)] bg-[var(--background)] py-10 sm:py-12 lg:min-h-[32rem] lg:py-14">
       <Container className="relative lg:flex lg:h-full lg:items-center">
-        <div className="grid w-full gap-10 lg:grid-cols-[minmax(0,1.18fr)_18rem] lg:items-center lg:gap-12 xl:grid-cols-[minmax(0,1.2fr)_19rem]">
-          <div className="max-w-3xl">
+        <div className="grid w-full gap-10 lg:grid-cols-[minmax(0,1fr)_14rem] lg:items-center lg:gap-16">
+          <div className="max-w-2xl">
             <div
-              className="animate-fade-up space-y-3 sm:space-y-4"
+              className="animate-fade-up space-y-4"
               style={{ animationDelay: "80ms" }}
             >
-              <h1 className={`${playfairDisplay.className} max-w-4xl text-[3rem] leading-[0.95] tracking-[-0.04em] text-[var(--text)] sm:text-[4rem] md:text-[4.35rem] lg:text-[4.2rem] xl:text-[4.6rem]`}>
-                I'm Daniel, an AI engineer that ships.
+              <h1 className={`${playfairDisplay.className} max-w-3xl text-[2.35rem] leading-[1.04] text-[var(--text)] sm:text-[3.15rem] md:text-[3.55rem] lg:text-[4rem]`}>
+                Applied AI engineer building systems that ship.
               </h1>
-              <p className="max-w-2xl text-base leading-7 text-[var(--text-muted)] sm:text-lg sm:leading-8">
-                I build production-minded AI systems across vision, documents, and systems-heavy software.
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent)] sm:text-[0.8rem]">
+                Vision / Documents / Robotics / Recsys
+              </p>
+              <p className="max-w-xl text-base leading-7 text-[var(--text-muted)] sm:text-lg sm:leading-8">
+                I connect ML research, systems engineering, and product execution without losing sight of reliability, usability, and delivery.
+              </p>
+              <p className="text-sm leading-6 text-[var(--text)]">
+                CMU MS · Systems Engineer II · Graduate Research · Applied AI Projects
               </p>
             </div>
 
             <div
-              className="mt-5 animate-fade-up flex flex-wrap gap-3"
+              className="mt-6 animate-fade-up flex flex-wrap gap-3"
               style={{ animationDelay: "140ms" }}
             >
               <Link
@@ -58,29 +53,10 @@ export function Hero() {
                 Open Resume
               </Link>
             </div>
-
-            <dl
-              className="mt-6 animate-fade-up grid gap-0 border-y border-[var(--border)]"
-              style={{ animationDelay: "200ms" }}
-            >
-              {heroProof.map((item) => (
-                <div
-                  key={item.label}
-                  className="grid gap-1 border-b border-[var(--border)] py-3 last:border-b-0 sm:grid-cols-[5.25rem_minmax(0,1fr)] sm:items-start sm:gap-4"
-                >
-                  <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-                    {item.label}
-                  </dt>
-                  <dd className="text-sm leading-6 text-[var(--text)] sm:text-[0.95rem]">
-                    {item.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
           </div>
 
           <div
-            className="animate-fade-up"
+            className="hidden animate-fade-up lg:block"
             style={{ animationDelay: "240ms" }}
           >
             <HeroPortrait />
@@ -93,7 +69,7 @@ export function Hero() {
 
 function HeroPortrait() {
   return (
-    <div className="mx-auto w-full max-w-[18rem] lg:mx-0">
+    <div className="mx-auto w-full max-w-[14rem] lg:mx-0">
       <div className="border border-[var(--border)] bg-[var(--surface-strong)] p-3">
         <Image
           src="/me.jpg"
@@ -101,7 +77,7 @@ function HeroPortrait() {
           width={1536}
           height={2048}
           priority
-          className="h-[16rem] w-full object-cover object-center sm:h-[17rem] lg:h-[19rem]"
+          className="h-[15rem] w-full object-cover object-center"
         />
       </div>
     </div>

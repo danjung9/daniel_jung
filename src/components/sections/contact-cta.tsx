@@ -14,7 +14,7 @@ export function ContactCta() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
                 Contact
               </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--text)] sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold text-[var(--text)] sm:text-4xl">
                 Open to applied AI, ML, and systems roles.
               </h2>
               <p className="mt-3 text-base leading-7 text-[var(--text-muted)]">

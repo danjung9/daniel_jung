@@ -9,6 +9,14 @@ export const projects: Project[] = [
       "Built an Emio-based pick-and-place imitation-learning lab that collects scripted expert rollouts, trains an implicit behavior-cloning policy, and evaluates learned controllers in closed loop.",
     description:
       "This project turns a SOFA Robotics pick-and-place scene into a complete Compliance Lab Platform workflow for imitation learning. The system keeps the task scene as the source of truth across scripted expert behavior, rollout collection, policy training, closed-loop evaluation, and interactive inspection. It trains a state-only implicit behavior-cloning policy, uses bounded Cross-Entropy Method search to select low-energy motor commands at inference time, and reports experimental metrics across policy rollouts for analyzing robustness and failure modes.",
+    problem:
+      "Robotics imitation-learning workflows often hide the connection between simulation, demonstrations, policy training, and closed-loop behavior.",
+    contribution:
+      "Built the rollout collection, implicit behavior-cloning policy, bounded CEM action search, evaluation scripts, and inspection workflow with a shared SOFA scene as the source of truth.",
+    outcome:
+      "Created an end-to-end robotics lab that makes demonstration quality, policy behavior, and failure modes inspectable.",
+    metric: "100 evaluation episodes · 100% total success · ~5.67 mm final place error",
+    recruiterSignal: "Robotics + imitation learning + evaluation discipline",
     role: "Co-Builder",
     teamSize: 2,
     period: "2026",
@@ -52,6 +60,13 @@ export const projects: Project[] = [
       "Built a full-stack social feed demo that combines ranking controls, explainability, and AI-generated personas to make recommendation behavior inspectable.",
     description:
       "This project reimplements a personalized feed pipeline inspired by large-scale social ranking systems. It pairs a Next.js frontend with a Python FastAPI backend, stores interactions in SQLite, and exposes the stages of candidate sourcing, filtering, scoring, diversity, and final selection so the ranking logic is easy to understand and tune.",
+    problem:
+      "Recommendation systems can feel opaque when users and builders cannot see why items were ranked or filtered.",
+    contribution:
+      "Built the full-stack demo, ranking pipeline controls, feed explanation UI, persona generation flow, and SQLite-backed interaction loop.",
+    outcome:
+      "Turned ranking internals into an inspectable product surface that supports tuning, debugging, and recruiter-friendly demos.",
+    recruiterSignal: "Full-stack ML product with explainable ranking",
     role: "Independent Builder",
     teamSize: 1,
     period: "2026",
@@ -70,7 +85,7 @@ export const projects: Project[] = [
       caseStudy: "/projects/meetpeople-recommendation-system"
     },
     image: "/projects/meetpeople.png",
-    featured: false,
+    featured: true,
     status: "live"
   },
   {
@@ -81,6 +96,13 @@ export const projects: Project[] = [
       "Built an interactive assistant that ingests specification documents and turns them into Jira-style tickets or compliance matrices with lightweight retrieval.",
     description:
       "This project uses Gradio for the interface, ChromaDB for in-memory retrieval, local sentence-transformer embeddings for document chunk search, and a Qwen model through OpenRouter to generate structured outputs. It is designed to help technical teams move from long-form requirements documents to actionable downstream artifacts faster.",
+    problem:
+      "Engineering teams lose time translating long requirements documents into structured tickets and compliance artifacts.",
+    contribution:
+      "Built the document ingestion, retrieval, workflow routing, and structured-output interface for ticket and compliance-matrix generation.",
+    outcome:
+      "Made requirements analysis faster to inspect by pairing retrieval context with operator-facing structured outputs.",
+    recruiterSignal: "RAG + document workflows + practical LLM orchestration",
     role: "Independent Builder",
     teamSize: 4,
     period: "2025",
@@ -99,7 +121,7 @@ export const projects: Project[] = [
       caseStudy: "/projects/requirements-assistant"
     },
     image: "/projects/requirements-assistant.png",
-    featured: false,
+    featured: true,
     status: "live"
   },
   {
@@ -110,6 +132,13 @@ export const projects: Project[] = [
       "Built a live shopping assistant using Meta Ray-Ban smart glasses that detects product interactions and performs real-time research on pricing, specs, and alternatives.",
     description:
       "Developed an end-to-end multimodal AI system that integrates Meta Ray-Ban smart glasses with real-time product recognition and web search. When a user picks up an item in-store, the system detects the interaction, retrieves relevant product data using a web search tool via MCP, and delivers insights through a conversational AI assistant. Users can explore comparisons, pricing, and specifications hands-free, and trigger actions like 'Buy Now' through integrated tooling.",
+    problem:
+      "In-store shoppers have limited hands-free access to product comparisons, pricing context, and alternatives at the moment they pick up an item.",
+    contribution:
+      "Built the multimodal interaction flow that combines smart-glasses input, product detection, live search, and conversational actions.",
+    outcome:
+      "Demonstrated a real-time physical-world AI assistant that connects perception, retrieval, and voice-driven decision support.",
+    recruiterSignal: "Multimodal AI + real-time product workflow",
     role: "Builder in NexHacks 2026",
     period: "2026",
     stack: [
@@ -147,6 +176,13 @@ export const projects: Project[] = [
       "Built an interactive computer-vision app that rates clothing items, auto-categorizes wardrobe pieces, and recommends pairings using image embeddings and color/style matching.",
     description:
       "Outfit Assistant is an AI-powered wardrobe analysis tool built for rapid experimentation with fashion and style data. The project combines a Gradio interface with a Python vision pipeline to let users upload wardrobe images, automatically score clothing items on a 1–100 scale, infer garment categories, and receive pairing recommendations. The recommendation flow blends CLIP-based image embeddings with complementary color and style heuristics, creating a practical end-to-end system that connects model inference, lightweight ranking logic, and user-facing interaction design.",
+    problem:
+      "Wardrobe recommendation demos often stop at model inference and do not show a complete user workflow for rating, categorizing, and pairing items.",
+    contribution:
+      "Built the interactive computer-vision workflow for upload, scoring, categorization, embedding comparison, and outfit pairing.",
+    outcome:
+      "Packaged model inference and practical recommendation heuristics into a usable consumer-facing prototype.",
+    recruiterSignal: "Computer vision product prototype",
     role: "Co-Builder",
     teamSize: 2,
     period: "2025",
@@ -175,7 +211,7 @@ export const projects: Project[] = [
       caseStudy: "https://huggingface.co/spaces/danjung9/P1-Outfit-Assistant"
     },
     image: "/projects/outfit.png",
-    featured: true,
+    featured: false,
     status: "archived"
   },
   {
@@ -184,6 +220,13 @@ export const projects: Project[] = [
     tagline: "End-to-end chemical process design integrating thermodynamics, transport, and control",
     summary: "Designed a large-scale chemical plant by integrating core chemical engineering principles including material and energy balances, thermodynamics, transport phenomena, reaction engineering, and process control.",
     description: "This project is a comprehensive chemical plant design completed as part of a capstone ChE curriculum. It applies the five foundational pillars of chemical engineering: material and energy balances, thermodynamics, mass and heat transport, reactive process engineering, and process control. The work involved designing and analyzing unit operations such as compressors, heat exchangers, and reactors, while ensuring system-wide efficiency, feasibility, and controllability. The final design incorporates both steady-state analysis and control strategies, demonstrating the ability to translate theoretical principles into a functional, large-scale process system.",
+    problem:
+      "A full chemical process design has to balance thermodynamics, transport, reaction engineering, control, and system-level feasibility.",
+    contribution:
+      "Contributed to unit-operation design and process analysis across material balances, heat transfer, reactor design, and control strategy.",
+    outcome:
+      "Produced a cohesive capstone plant design that shows first-principles engineering and multidisciplinary system reasoning.",
+    recruiterSignal: "Systems engineering foundation",
     role: "Team Member",
     teamSize: 4,
     period: "2023",
@@ -205,7 +248,7 @@ export const projects: Project[] = [
       caseStudy: ""
     },
     image: "/projects/ammoniaplant.jpeg",
-    featured: true,
+    featured: false,
     status:"archived"
   },
 ];

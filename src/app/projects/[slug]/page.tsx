@@ -68,13 +68,13 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         <SectionHeading
           eyebrow="Case Study"
           title={project.title}
-          description={project.tagline}
+          description={project.recruiterSignal ?? project.tagline}
         />
 
-        <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr]">
-          <article className="space-y-8">
-            <div className="surface overflow-hidden rounded-[2rem] p-3">
-              <div className="overflow-hidden rounded-[1.5rem] border border-[var(--border)]">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
+          <article className="order-2 lg:order-1">
+            <div className="overflow-hidden border border-[var(--border)] bg-[var(--background-strong)]">
+              <div className="overflow-hidden">
                 <ProjectMedia
                   project={project}
                   className="max-h-[70vh] w-full bg-black object-contain"
@@ -84,13 +84,27 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               </div>
             </div>
 
-            <section className="surface rounded-[2rem] p-8">
-              <h2 className="text-2xl font-semibold tracking-tight">Overview</h2>
-              <p className="prose-copy mt-4 text-base">{project.description}</p>
+            <section className="border-t border-[var(--border)] py-8">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+                Problem
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold">What this project needed to solve</h2>
+              <p className="prose-copy mt-4 text-base">{project.problem ?? project.description}</p>
             </section>
 
-            <section className="surface rounded-[2rem] p-8">
-              <h2 className="text-2xl font-semibold tracking-tight">Highlights</h2>
+            <section className="border-t border-[var(--border)] py-8">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+                My Role
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold">Ownership and contribution</h2>
+              <p className="prose-copy mt-4 text-base">{project.contribution ?? project.summary}</p>
+            </section>
+
+            <section className="border-t border-[var(--border)] py-8">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+                Technical Approach
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold">How the system was built</h2>
               <ul className="mt-4 space-y-3 text-sm text-[var(--text-muted)] md:text-base">
                 {project.highlights.map((highlight) => (
                   <li key={highlight} className="flex gap-3">
@@ -102,13 +116,21 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </section>
 
             {project.impact?.length ? (
-              <section className="surface rounded-[2rem] p-8">
-                <h2 className="text-2xl font-semibold tracking-tight">Impact</h2>
+              <section className="border-t border-[var(--border)] py-8">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+                  Results
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold">Outcome and proof</h2>
+                {project.metric ? (
+                  <p className="mt-4 border-l-2 border-[var(--accent)] pl-4 text-base font-semibold leading-7 text-[var(--text)]">
+                    {project.metric}
+                  </p>
+                ) : null}
                 <ul className="mt-4 grid gap-4 md:grid-cols-2">
                   {project.impact.map((item) => (
                     <li
                       key={item}
-                      className="rounded-[1.25rem] border border-[var(--border)] bg-white/70 px-5 py-4 text-sm text-[var(--text-muted)]"
+                      className="border-l border-[var(--border)] pl-4 text-sm leading-6 text-[var(--text-muted)]"
                     >
                       {item}
                     </li>
@@ -116,12 +138,20 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 </ul>
               </section>
             ) : null}
+
+            <section className="border-t border-[var(--border)] py-8">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+                Overview
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold">Full context</h2>
+              <p className="prose-copy mt-4 text-base">{project.description}</p>
+            </section>
           </article>
 
-          <aside className="space-y-6">
-            <section className="surface rounded-[2rem] p-8">
-              <h2 className="text-lg font-semibold tracking-tight">Project Info</h2>
-              <dl className="mt-5 space-y-5 text-sm text-[var(--text-muted)]">
+          <aside className="order-1 space-y-6 border-t border-[var(--border)] pt-6 lg:sticky lg:top-24 lg:order-2">
+            <section>
+              <h2 className="text-lg font-semibold">Project Info</h2>
+              <dl className="mt-4 space-y-4 text-sm text-[var(--text-muted)]">
                 <div>
                   <dt className="font-medium text-[var(--text)]">Role</dt>
                   <dd className="mt-1">{project.role}</dd>
@@ -143,18 +173,18 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               </dl>
             </section>
 
-            <section className="surface rounded-[2rem] p-8">
-              <h2 className="text-lg font-semibold tracking-tight">Stack</h2>
-              <div className="mt-5 flex flex-wrap gap-2">
+            <section className="border-t border-[var(--border)] pt-6">
+              <h2 className="text-lg font-semibold">Stack</h2>
+              <div className="mt-4 flex flex-wrap gap-2">
                 {project.stack.map((item) => (
                   <Badge key={item}>{item}</Badge>
                 ))}
               </div>
             </section>
 
-            <section className="surface rounded-[2rem] p-8">
-              <h2 className="text-lg font-semibold tracking-tight">Links</h2>
-              <div className="mt-5 flex flex-wrap gap-3">
+            <section className="border-t border-[var(--border)] pt-6">
+              <h2 className="text-lg font-semibold">Links</h2>
+              <div className="mt-4 flex flex-wrap gap-3">
                 {project.links.live ? (
                   <Button href={project.links.live} external>
                     Live Demo
