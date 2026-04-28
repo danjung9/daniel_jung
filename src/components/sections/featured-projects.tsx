@@ -15,7 +15,7 @@ export function FeaturedProjects() {
     .filter((project): project is NonNullable<typeof project> => Boolean(project));
 
   return (
-    <Section id="featured-projects" className="border-b border-[var(--border)] bg-white py-12 sm:py-16 lg:py-20">
+    <Section id="featured-projects" className="border-b border-[var(--border)] bg-white py-10 sm:py-12 lg:py-16">
       <Container>
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div className="space-y-3">

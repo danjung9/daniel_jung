@@ -70,6 +70,11 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           title={project.title}
           description={project.recruiterSignal ?? project.tagline}
         />
+        {project.metric ?? project.outcome ? (
+          <p className="max-w-3xl border-l-2 border-[var(--accent)] pl-4 text-base font-semibold leading-7 text-[var(--text)]">
+            {project.metric ?? project.outcome}
+          </p>
+        ) : null}
 
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
           <article className="order-2 lg:order-1">
@@ -121,11 +126,6 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   Results
                 </p>
                 <h2 className="mt-3 text-2xl font-semibold">Outcome and proof</h2>
-                {project.metric ? (
-                  <p className="mt-4 border-l-2 border-[var(--accent)] pl-4 text-base font-semibold leading-7 text-[var(--text)]">
-                    {project.metric}
-                  </p>
-                ) : null}
                 <ul className="mt-4 grid gap-4 md:grid-cols-2">
                   {project.impact.map((item) => (
                     <li
@@ -151,29 +151,29 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           <aside className="order-1 space-y-6 border-t border-[var(--border)] pt-6 lg:sticky lg:top-24 lg:order-2">
             <section>
               <h2 className="text-lg font-semibold">Project Info</h2>
-              <dl className="mt-4 space-y-4 text-sm text-[var(--text-muted)]">
-                <div>
+              <dl className="mt-4 divide-y divide-[var(--border)] text-sm text-[var(--text-muted)]">
+                <div className="grid grid-cols-[5rem_minmax(0,1fr)] gap-3 py-3 first:pt-0">
                   <dt className="font-medium text-[var(--text)]">Role</dt>
-                  <dd className="mt-1">{project.role}</dd>
+                  <dd>{project.role}</dd>
                 </div>
-                <div>
+                <div className="grid grid-cols-[5rem_minmax(0,1fr)] gap-3 py-3">
                   <dt className="font-medium text-[var(--text)]">Period</dt>
-                  <dd className="mt-1">{project.period}</dd>
+                  <dd>{project.period}</dd>
                 </div>
                 {project.teamSize ? (
-                  <div>
-                    <dt className="font-medium text-[var(--text)]">Team Size</dt>
-                    <dd className="mt-1">{project.teamSize}</dd>
+                  <div className="grid grid-cols-[5rem_minmax(0,1fr)] gap-3 py-3">
+                    <dt className="font-medium text-[var(--text)]">Team</dt>
+                    <dd>{project.teamSize}</dd>
                   </div>
                 ) : null}
-                <div>
+                <div className="grid grid-cols-[5rem_minmax(0,1fr)] gap-3 py-3">
                   <dt className="font-medium text-[var(--text)]">Status</dt>
-                  <dd className="mt-1 capitalize">{project.status ?? "live"}</dd>
+                  <dd className="capitalize">{project.status ?? "live"}</dd>
                 </div>
               </dl>
             </section>
 
-            <section className="border-t border-[var(--border)] pt-6">
+            <section className="border-t border-[var(--border)] pt-5">
               <h2 className="text-lg font-semibold">Stack</h2>
               <div className="mt-4 flex flex-wrap gap-2">
                 {project.stack.map((item) => (
@@ -182,7 +182,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               </div>
             </section>
 
-            <section className="border-t border-[var(--border)] pt-6">
+            <section className="border-t border-[var(--border)] pt-5">
               <h2 className="text-lg font-semibold">Links</h2>
               <div className="mt-4 flex flex-wrap gap-3">
                 {project.links.live ? (

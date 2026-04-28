@@ -6,9 +6,9 @@ import { SocialLink } from "../ui/social-link";
 
 export function ContactCta() {
   return (
-    <Section id="contact-cta" className="bg-[var(--background)] py-12 sm:py-14 lg:py-16">
+    <Section id="contact-cta" className="bg-[var(--background)] py-10 sm:py-12 lg:py-16">
       <Container>
-        <div className="border border-[var(--border)] bg-[var(--background)] px-6 py-8 sm:px-8 sm:py-9">
+        <div className="border-t border-[var(--border)] pt-8">
           <div className="flex flex-col gap-6 border-b border-[var(--border)] pb-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
@@ -42,7 +42,7 @@ export function ContactCta() {
             {siteConfig.socials.map((social) => (
               <SocialLink key={social.label} label={social.label} href={social.href} />
             ))}
-            <span>{siteConfig.location}</span>
+            {siteConfig.location ? <span>{siteConfig.location}</span> : null}
           </div>
         </div>
       </Container>

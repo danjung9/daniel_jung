@@ -48,7 +48,8 @@ export const projects: Project[] = [
       ]
     },
     image: "/projects/emio-pick-place-imitation-lab.png",
-    video: "/projects/emio-pick-place-imitation-lab.mp4",
+    video: "/projects/better_video.mov",
+    videoPlaybackRate: 2,
     featured: true,
     status: "in-progress"
   },

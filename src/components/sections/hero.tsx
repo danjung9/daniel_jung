@@ -14,7 +14,7 @@ const playfairDisplay = Playfair_Display({
 
 export function Hero() {
   return (
-    <Section className="overflow-hidden border-b border-[var(--border)] bg-[var(--background)] py-10 sm:py-12 lg:min-h-[32rem] lg:py-14">
+    <Section className="overflow-hidden border-b border-[var(--border)] bg-[var(--background)] py-8 sm:py-12 lg:min-h-[30rem] lg:py-12">
       <Container className="relative lg:flex lg:h-full lg:items-center">
         <div className="grid w-full gap-10 lg:grid-cols-[minmax(0,1fr)_14rem] lg:items-center lg:gap-16">
           <div className="max-w-2xl">
@@ -22,7 +22,7 @@ export function Hero() {
               className="animate-fade-up space-y-4"
               style={{ animationDelay: "80ms" }}
             >
-              <h1 className={`${playfairDisplay.className} max-w-3xl text-[2.35rem] leading-[1.04] text-[var(--text)] sm:text-[3.15rem] md:text-[3.55rem] lg:text-[4rem]`}>
+              <h1 className={`${playfairDisplay.className} max-w-3xl text-[2.15rem] leading-[1.04] text-[var(--text)] sm:text-[3.15rem] md:text-[3.55rem] lg:text-[4rem]`}>
                 Applied AI engineer building systems that ship.
               </h1>
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent)] sm:text-[0.8rem]">
@@ -30,9 +30,6 @@ export function Hero() {
               </p>
               <p className="max-w-xl text-base leading-7 text-[var(--text-muted)] sm:text-lg sm:leading-8">
                 I connect ML research, systems engineering, and product execution without losing sight of reliability, usability, and delivery.
-              </p>
-              <p className="text-sm leading-6 text-[var(--text)]">
-                CMU MS · Systems Engineer II · Graduate Research · Applied AI Projects
               </p>
             </div>
 
@@ -53,6 +50,9 @@ export function Hero() {
                 Open Resume
               </Link>
             </div>
+            <p className="mt-5 animate-fade-up text-sm leading-6 text-[var(--text)]" style={{ animationDelay: "180ms" }}>
+              CMU MS · Systems Engineer II · Graduate Research · Applied AI Projects
+            </p>
           </div>
 
           <div
@@ -79,6 +79,14 @@ function HeroPortrait() {
           priority
           className="h-[15rem] w-full object-cover object-center"
         />
+      </div>
+      <div className="mt-4 space-y-3 border-t border-[var(--border)] pt-4 text-xs leading-5 text-[var(--text-muted)]">
+        <p>
+          <span className="font-semibold text-[var(--text)]">CMU</span> graduate research in applied AI.
+        </p>
+        <p>
+          <span className="font-semibold text-[var(--text)]">Westinghouse</span> systems engineering discipline.
+        </p>
       </div>
     </div>
   );

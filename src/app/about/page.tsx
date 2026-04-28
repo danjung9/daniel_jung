@@ -17,7 +17,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function AboutPage() {
   return (
-    <Section>
+    <Section className="py-12 sm:py-16 lg:py-20">
       <Container className="space-y-12">
         <SectionHeading
           eyebrow="About"
@@ -25,21 +25,21 @@ export default function AboutPage() {
           description={siteConfig.description}
         />
 
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <section className="surface rounded-[2rem] p-8">
+        <div className="grid gap-10 border-t border-[var(--border)] pt-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <section>
             <h2 className="display-heading text-2xl font-semibold">Experience</h2>
-            <div className="mt-6 space-y-5">
+            <div className="mt-6 space-y-6">
               {experience.map((item) => (
                 <ExperienceItem key={`${item.company}-${item.title}`} item={item} />
               ))}
             </div>
           </section>
 
-          <section className="surface rounded-[2rem] p-8">
+          <section className="border-t border-[var(--border)] pt-8 lg:border-t-0 lg:border-l lg:pl-8 lg:pt-0">
             <h2 className="display-heading text-2xl font-semibold">Strengths</h2>
-            <div className="mt-6 space-y-6">
+            <div className="mt-6 divide-y divide-[var(--border)]">
               {skills.map((group) => (
-                <div key={group.title}>
+                <div key={group.title} className="py-5 first:pt-0 last:pb-0">
                   <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">
                     {group.title}
                   </h3>

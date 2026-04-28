@@ -35,6 +35,7 @@ export interface Project {
   links: ProjectLinks;
   image: string;
   video?: string;
+  videoPlaybackRate?: number;
   featured: boolean;
   status?: ProjectStatus;
 }
