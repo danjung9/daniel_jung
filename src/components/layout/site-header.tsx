@@ -21,7 +21,13 @@ export function SiteHeader() {
   const firstMobileLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    setIsMenuOpen(false);
+    const frameId = window.requestAnimationFrame(() => {
+      setIsMenuOpen(false);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+    };
   }, [pathname]);
 
   useEffect(() => {

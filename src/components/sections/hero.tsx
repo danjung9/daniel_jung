@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { Playfair_Display } from "next/font/google";
 
 import { siteConfig } from "../../data/site";
@@ -12,98 +12,78 @@ const playfairDisplay = Playfair_Display({
   weight: ["500", "600"]
 });
 
-const heroProof = [
-  {
-    label: "Research",
-    value: "CMU MS + graduate research"
-  },
-  {
-    label: "Industry",
-    value: "Systems Engineer II at Westinghouse"
-  }
+const hero = {
+  proof: ["Applied AI Systems", "CMU MS · Systems Engineer II · Graduate Research"],
+  title: "I'm Daniel, an AI engineer that ships.",
+  domains: "Vision · Document AI · Robotics · Recommender systems",
+  body: "I turn research-heavy AI ideas into usable software across perception, retrieval, robotics, and engineering workflows."
+};
+
+const ctaBase = "inline-flex h-11 items-center justify-center px-5 text-sm font-semibold transition focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4 sm:text-base";
+const ctaClass = {
+  primary: `${ctaBase} border border-[var(--accent)] bg-[var(--accent)] !text-white hover:border-[var(--text)] hover:bg-[var(--text)]`,
+  secondary: `${ctaBase} border border-[var(--border)] bg-white/70 text-[var(--text)] hover:border-[var(--accent)] hover:bg-white`
+};
+
+const heroLinks = [
+  { href: "/projects", label: "View Case Studies", className: ctaClass.primary },
+  { href: siteConfig.resumeUrl, label: "Open Resume", className: ctaClass.secondary }
 ];
 
 export function Hero() {
   return (
-    <Section className="overflow-hidden border-b border-[var(--border)] bg-[var(--background)] py-8 sm:py-12 lg:h-[calc(100svh-4rem)] lg:min-h-[42rem] lg:py-14">
-      <Container className="relative lg:flex lg:h-full lg:items-center">
-        <div className="grid w-full gap-10 lg:grid-cols-[minmax(0,1.18fr)_18rem] lg:items-center lg:gap-12 xl:grid-cols-[minmax(0,1.2fr)_19rem]">
-          <div className="max-w-3xl">
-            <div
-              className="animate-fade-up space-y-3 sm:space-y-4"
-              style={{ animationDelay: "80ms" }}
-            >
-              <h1 className={`${playfairDisplay.className} max-w-4xl text-[3rem] leading-[0.95] tracking-[-0.04em] text-[var(--text)] sm:text-[4rem] md:text-[4.35rem] lg:text-[4.2rem] xl:text-[4.6rem]`}>
-                I'm Daniel, an AI engineer that ships.
+    <Section className="relative overflow-hidden border-b border-[var(--border)] bg-[var(--background)] !py-0">
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46vw] max-w-[42rem] lg:block">
+        <Image
+          src="/me.jpg"
+          alt=""
+          fill
+          priority
+          sizes="46vw"
+          className="object-cover object-[74%_22%] opacity-[0.42] saturate-[0.72]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--background)_0%,rgba(247,249,252,0.9)_18%,rgba(247,249,252,0.28)_52%,rgba(247,249,252,0.08)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,249,252,0.18)_0%,rgba(247,249,252,0)_34%,var(--background)_100%)]" />
+      </div>
+
+      <Container className="relative">
+        <div className="grid min-h-[calc(100svh-4.5rem)] items-center py-6 sm:py-8 lg:py-10">
+          <div
+            className="animate-fade-up max-w-4xl"
+            style={{ animationDelay: "80ms" }}
+          >
+            <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--accent)] sm:text-[0.78rem]">
+              <span>{hero.proof[0]}</span>
+              <span className="hidden h-px w-12 bg-[var(--accent)] sm:block" />
+              <span>{hero.proof[1]}</span>
+            </div>
+
+            <div className="space-y-4">
+              <h1 className={`${playfairDisplay.className} max-w-[58rem] text-[1.95rem] leading-[1.02] text-[var(--text)] sm:text-[2.55rem] md:text-[2.9rem] lg:text-[3.1rem] xl:text-[3.95rem]`}>
+                {hero.title}
               </h1>
-              <p className="max-w-2xl text-base leading-7 text-[var(--text-muted)] sm:text-lg sm:leading-8">
-                I build production-minded AI systems across vision, documents, and systems-heavy software.
+              <p className="max-w-2xl text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent)] sm:text-[0.8rem]">
+                {hero.domains}
+              </p>
+              <p className="max-w-xl text-base leading-7 text-[var(--text-muted)] sm:text-lg sm:leading-8">
+                {hero.body}
               </p>
             </div>
 
-            <div
-              className="mt-5 animate-fade-up flex flex-wrap gap-3"
-              style={{ animationDelay: "140ms" }}
-            >
-              <Link
-                href="/projects"
-                className="inline-flex h-12 items-center justify-center border border-[var(--text)] bg-[var(--text)] px-5 text-base font-semibold !text-white transition hover:bg-[var(--accent)] hover:border-[var(--accent)]"
-              >
-                View Projects
-              </Link>
-              <Link
-                href={siteConfig.resumeUrl}
-                className="inline-flex h-12 items-center justify-center border border-[var(--border)] bg-white px-5 text-base font-semibold text-[var(--text)] transition hover:border-[var(--text)]"
-              >
-                Open Resume
-              </Link>
-            </div>
-
-            <dl
-              className="mt-6 animate-fade-up grid gap-0 border-y border-[var(--border)]"
-              style={{ animationDelay: "200ms" }}
-            >
-              {heroProof.map((item) => (
-                <div
-                  key={item.label}
-                  className="grid gap-1 border-b border-[var(--border)] py-3 last:border-b-0 sm:grid-cols-[5.25rem_minmax(0,1fr)] sm:items-start sm:gap-4"
+            <div className="mt-6 flex flex-wrap gap-3">
+              {heroLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={link.className}
                 >
-                  <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-                    {item.label}
-                  </dt>
-                  <dd className="text-sm leading-6 text-[var(--text)] sm:text-[0.95rem]">
-                    {item.value}
-                  </dd>
-                </div>
+                  {link.label}
+                </Link>
               ))}
-            </dl>
-          </div>
-
-          <div
-            className="animate-fade-up"
-            style={{ animationDelay: "240ms" }}
-          >
-            <HeroPortrait />
+            </div>
           </div>
         </div>
       </Container>
     </Section>
-  );
-}
-
-function HeroPortrait() {
-  return (
-    <div className="mx-auto w-full max-w-[18rem] lg:mx-0">
-      <div className="border border-[var(--border)] bg-[var(--surface-strong)] p-3">
-        <Image
-          src="/me.jpg"
-          alt={`${siteConfig.name} portrait`}
-          width={1536}
-          height={2048}
-          priority
-          className="h-[16rem] w-full object-cover object-center sm:h-[17rem] lg:h-[19rem]"
-        />
-      </div>
-    </div>
   );
 }

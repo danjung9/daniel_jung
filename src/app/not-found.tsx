@@ -10,7 +10,7 @@ export default function NotFound() {
       <Container className="max-w-3xl">
         <div className="surface rounded-[2rem] p-10 text-center">
           <p className="eyebrow text-sm font-semibold">404</p>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+          <h1 className="mt-4 text-4xl font-semibold md:text-5xl">
             This page is missing.
           </h1>
           <p className="prose-copy mx-auto mt-4 max-w-2xl text-base">
@@ -35,4 +35,3 @@ export default function NotFound() {
     </Section>
   );
 }
-

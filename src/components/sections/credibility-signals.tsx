@@ -17,7 +17,7 @@ export function CredibilitySignals() {
           {credibilitySignals.map((signal) => (
             <Card key={signal.title} className="space-y-4 rounded-[1.75rem]">
               <p className="eyebrow text-xs font-semibold">{signal.eyebrow}</p>
-              <h3 className="text-xl font-semibold tracking-tight text-[var(--text)]">
+              <h3 className="text-xl font-semibold text-[var(--text)]">
                 {signal.title}
               </h3>
               <p className="text-sm leading-7 text-[var(--text-muted)] md:text-base">

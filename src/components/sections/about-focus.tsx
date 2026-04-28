@@ -20,7 +20,7 @@ export function AboutFocus() {
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <Card className="space-y-6 rounded-[1.75rem]">
             <div className="space-y-4">
-              <h3 className="text-2xl font-semibold tracking-tight text-[var(--text)]">
+              <h3 className="text-2xl font-semibold text-[var(--text)]">
                 Short introduction
               </h3>
               <p className="text-base leading-8 text-[var(--text-muted)]">
@@ -48,7 +48,7 @@ export function AboutFocus() {
           <div className="grid gap-6">
             {focusAreas.map((area) => (
               <Card key={area.title} className="space-y-4 rounded-[1.75rem]">
-                <h3 className="text-xl font-semibold tracking-tight text-[var(--text)]">
+                <h3 className="text-xl font-semibold text-[var(--text)]">
                   {area.title}
                 </h3>
                 <p className="text-sm leading-7 text-[var(--text-muted)] md:text-base">

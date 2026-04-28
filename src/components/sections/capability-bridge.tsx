@@ -127,7 +127,7 @@ function CredentialTile({
           {eyebrow}
         </p>
         <div className="space-y-0.5">
-          <h2 className={`${titleClassName} font-semibold tracking-[-0.05em] text-[var(--text)]`}>
+          <h2 className={`${titleClassName} font-semibold text-[var(--text)]`}>
             {title}
           </h2>
           <p className="text-sm font-medium text-[var(--text)]">{detail}</p>
@@ -161,7 +161,7 @@ function ThemeModule({
         <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
           {String(index).padStart(2, "0")}
         </p>
-        <h2 className="text-[1.15rem] font-semibold tracking-[-0.04em] text-[var(--text)] sm:text-xl">
+        <h2 className="text-[1.15rem] font-semibold text-[var(--text)] sm:text-xl">
           {label}
           <span className="block text-[var(--text-muted)]">{emphasis}</span>
         </h2>

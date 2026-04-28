@@ -21,6 +21,11 @@ export interface Project {
   tagline: string;
   summary: string;
   description: string;
+  problem?: string;
+  contribution?: string;
+  outcome?: string;
+  metric?: string;
+  recruiterSignal?: string;
   role: string;
   teamSize?: number;
   period: string;
@@ -30,6 +35,7 @@ export interface Project {
   links: ProjectLinks;
   image: string;
   video?: string;
+  videoPlaybackRate?: number;
   featured: boolean;
   status?: ProjectStatus;
 }

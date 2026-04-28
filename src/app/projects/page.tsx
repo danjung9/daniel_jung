@@ -22,9 +22,9 @@ export default function ProjectsPage() {
           title="Project case studies that reflect applied AI and systems thinking."
           description="Each project page is written to make the problem, technical approach, stack, and engineering relevance easy to scan quickly."
         />
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="space-y-2">
           {projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+            <ProjectCard key={project.slug} project={project} variant="index" />
           ))}
         </div>
       </Container>
