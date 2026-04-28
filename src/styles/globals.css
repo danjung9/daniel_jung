@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fdfdfc;
-  --background-strong: #f7f8fa;
+  --background: #f7f9fc;
+  --background-strong: #edf2f8;
   --surface: rgba(255, 255, 255, 0.82);
   --surface-strong: rgba(255, 255, 255, 0.96);
-  --header-background: rgba(253, 253, 252, 0.92);
-  --text: #19232e;
-  --text-muted: #566472;
-  --border: rgba(25, 35, 46, 0.12);
-  --accent: #0f766e;
-  --accent-soft: rgba(15, 118, 110, 0.12);
-  --shadow: 0 20px 48px rgba(25, 35, 46, 0.08);
+  --header-background: rgba(247, 249, 252, 0.92);
+  --text: #101820;
+  --text-muted: #586675;
+  --border: rgba(16, 24, 32, 0.13);
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.11);
+  --shadow: 0 20px 48px rgba(16, 24, 32, 0.08);
 }
 
 * {
@@ -33,7 +33,7 @@ body {
 }
 
 ::selection {
-  background: rgba(15, 118, 110, 0.18);
+  background: rgba(37, 99, 235, 0.18);
 }
 
 a {

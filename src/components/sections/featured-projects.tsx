@@ -23,10 +23,10 @@ export function FeaturedProjects() {
               Selected Work
             </p>
             <h2 className="text-3xl font-semibold text-[var(--text)] sm:text-4xl">
-              Two projects, enough signal to keep moving.
+              Two projects, chosen to show technical range.
             </h2>
             <p className="max-w-2xl text-base leading-7 text-[var(--text-muted)]">
-              Vision / Documents / Robotics / Recsys, with the detail saved for the case studies.
+              Vision, document AI, robotics, and recommender systems — with the detail in the case studies.
             </p>
           </div>
           <div>
