@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, Manrope } from "next/font/google";
 
-import { SiteFooter } from "@/components/layout/site-footer";
-import { SiteHeader } from "@/components/layout/site-header";
 import { siteConfig } from "@/data/site";
 import { DEFAULT_OG_IMAGE, SITE_URL } from "@/lib/constants";
 import "@/styles/globals.css";
@@ -74,21 +72,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${ibmPlexSans.variable} ${manrope.variable}`}>
-      <body className="antialiased">
-        <div className="relative flex min-h-screen flex-col">
-          <a
-            href="#main-content"
-            className="absolute left-4 top-4 z-50 -translate-y-16 rounded-[4px] bg-[var(--text)] px-4 py-2 text-sm font-semibold text-white transition-transform focus:translate-y-0 focus-visible:translate-y-0"
-          >
-            Skip to main content
-          </a>
-          <SiteHeader />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <SiteFooter />
-        </div>
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

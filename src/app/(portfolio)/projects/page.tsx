@@ -17,7 +17,7 @@ export default function ProjectsPage() {
   return (
     <Section>
       <Container className="space-y-12">
-        <SectionHeading
+        <SectionHeading as="h1"
           eyebrow="Selected Work"
           title="A visual index of applied AI systems."
           description="Browse the work quickly, then open a case study for the technical details."

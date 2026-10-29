@@ -19,7 +19,7 @@ export default function AboutPage() {
   return (
     <Section className="py-12 sm:py-16 lg:py-20">
       <Container className="space-y-12">
-        <SectionHeading
+        <SectionHeading as="h1"
           eyebrow="About"
           title="An engineer working across AI, ML, systems engineering, and robotics-focused software."
           description={siteConfig.description}
