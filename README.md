@@ -10,10 +10,11 @@ About link and the introductory About me link jump directly to the biography.
 Projects and contact share a header and footer through the `(portfolio)` route
 group. About links lead to the homepage biography; there is no separate About page.
 
-The inner pages and missing-page screen extend the homepage's minimal evening
-style with warm near-black surfaces, ivory text, muted sand accents, and generous
-reading space. They use the same constellation menu, with native popover keyboard
-and dismissal behavior. Project media keeps its original color with a subtle
+Every page, including the missing-page screen, uses the homepage's pure black
+background, silver text, blue accents, and interactive perception field. A single
+shared menu provides identical positioning, constellation animation, native popover
+behavior, and pause/resume controls across routes. Workbench layouts keep their
+generous reading space. Project media keeps its original color with a subtle
 saturation reduction; project details retain their video controls and resources.
 
 Projects uses a workbench layout: roomy media-and-text rows, short display titles,

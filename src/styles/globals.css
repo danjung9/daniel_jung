@@ -1,37 +1,21 @@
 @import "tailwindcss";
 
-/* Shared theme; blue is the sole accent. Controls and media use an 8px radius. */
+/* One homepage palette for every route, independent of device color preference. */
 :root {
-  color-scheme: light dark;
-  --background: #f8f9fb;
-  --background-strong: #edf0f5;
-  --surface: #f1f3f7;
-  --surface-strong: #fcfcfd;
-  --header-background: #f8f9fb;
-  --text: #17202c;
-  --text-muted: #586373;
-  --border: #d9dfe7;
-  --border-strong: #aeb8c7;
-  --accent: #245bcb;
-  --accent-soft: #e6edfb;
-  --button-text: #fafbff;
+  color-scheme: dark;
+  --background: #000;
+  --background-strong: #0a0a0a;
+  --surface: #101010;
+  --surface-strong: #151515;
+  --header-background: #000;
+  --text: #f5f5f5;
+  --text-muted: #a6a6a6;
+  --border: #292929;
+  --border-strong: #777f79;
+  --accent: #93b6ff;
+  --accent-soft: #17243d;
+  --button-text: #000;
   --shadow: none;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #14181e;
-    --background-strong: #222933;
-    --surface: #1c222b;
-    --surface-strong: #202731;
-    --header-background: #14181e;
-    --text: #edf1f7;
-    --text-muted: #aebaca;
-    --border: #343e4c;
-    --border-strong: #67758a;
-    --accent: #93b6ff;
-    --accent-soft: #263a5b;
-    --button-text: #14181e;
-  }
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
@@ -45,13 +29,6 @@ button, a { touch-action: manipulation; transition: color 180ms ease, border-col
 .eyebrow { color: var(--accent); letter-spacing: .13em; text-transform: uppercase; }
 .display-heading { font-family: var(--font-display), sans-serif; letter-spacing: -.03em; text-wrap: balance; overflow-wrap: break-word; }
 .home-page {
-  --background: #000;
-  --text: #f5f5f5;
-  --text-muted: #a6a6a6;
-  --border: #292929;
-  --accent: #93b6ff;
-  --accent-soft: #17243d;
-  color-scheme: dark;
   position: relative;
   isolation: isolate;
   min-height: 100dvh;
@@ -199,42 +176,12 @@ main :focus-visible { scroll-margin-block: 6rem 2rem; }
   .ui-button { max-width: 100%; height: auto; min-height: 48px; padding: 12px 20px; white-space: normal; text-align: center; }
 }
 
-/* Inner pages carry the homepage's quiet evening mood into a reading space. */
-.portfolio-page {
-  --background: #0c0c0b;
-  --background-strong: #171715;
-  --surface: #171715;
-  --surface-strong: #1d1c19;
-  --header-background: #0c0c0b;
-  --text: #eeeae2;
-  --text-muted: #b4aea3;
-  --border: #302e29;
-  --border-strong: #746d60;
-  --accent: #d6c3a2;
-  --accent-soft: #29251f;
-  --button-text: #171511;
-  color-scheme: dark;
-  background: var(--background);
-  color: var(--text);
-  scrollbar-color: var(--border-strong) var(--background);
-}
+/* Workbench layouts inherit the homepage palette and particle background. */
+.portfolio-page { scrollbar-color: var(--border-strong) var(--background); }
 .portfolio-page .site-container { max-width: 1080px; padding-inline: 32px; }
-.portfolio-header { position: relative; z-index: 10; display: flex; min-height: 112px; align-items: center; padding-inline: clamp(24px, 4vw, 40px); }
+.portfolio-header { position: relative; display: flex; min-height: 112px; align-items: center; padding-inline: clamp(24px, 4vw, 40px); }
 .portfolio-home-link { display: inline-flex; align-items: center; min-height: 44px; font-size: .875rem; letter-spacing: .16em; text-decoration: none; }
 .portfolio-home-link:hover { color: var(--accent); }
-.portfolio-page .home-menu { position: absolute; }
-.portfolio-page .menu-orbit { animation: none; }
-.portfolio-page .menu-constellation circle { fill: var(--text-muted); }
-.portfolio-page .menu-constellation .menu-point-two { fill: var(--accent); }
-.portfolio-page .menu-icon-path { stroke: var(--accent); }
-.portfolio-page .home-navigation { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px 10px 8px; }
-.portfolio-page .menu-branch { height: 208px; }
-.portfolio-page .menu-branch path { stroke: var(--border-strong); }
-.portfolio-page .menu-branch circle { fill: var(--accent); }
-.portfolio-page .home-navigation a { color: var(--text-muted); }
-.portfolio-page .home-navigation a:is(:hover, :focus-visible), .portfolio-page .home-navigation a[aria-current="page"] { color: var(--text); }
-.portfolio-page .home-navigation a[aria-current="page"] span { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 6px; }
-.portfolio-page .home-navigation:popover-open a:nth-of-type(4) span { animation-delay: 150ms; }
 .portfolio-page main > section { padding-block: clamp(48px, 7vw, 96px) clamp(80px, 10vw, 144px); }
 .portfolio-page .section-heading { max-width: 780px; margin-bottom: 48px; }
 .portfolio-page .section-heading h1 { max-width: 24ch; font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 500; letter-spacing: -.025em; line-height: 1.25; text-wrap: pretty; }

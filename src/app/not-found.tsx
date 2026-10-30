@@ -1,39 +1,6 @@
-import Link from "next/link";
-
-import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
-import { Button } from "@/components/ui/button";
 import PortfolioLayout from "@/app/(portfolio)/layout";
+import { MissingPage } from "@/components/layout/missing-page";
 
 export default function NotFound() {
-  return (
-    <PortfolioLayout>
-    <Section>
-      <Container className="max-w-3xl">
-        <div className="py-8 text-center">
-          <h1 className="display-heading text-4xl font-semibold md:text-5xl">
-            This page is missing.
-          </h1>
-          <p className="prose-copy mx-auto mt-4 max-w-2xl text-base">
-            The link may be outdated, or the page may have moved. Start from the
-            homepage or go directly to the project archive.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="/">Back Home</Button>
-            <Button href="/projects" variant="secondary">
-              Browse Projects
-            </Button>
-          </div>
-          <p className="mt-8 text-sm text-[var(--text-muted)]">
-            If you expected a case study here,{" "}
-            <Link href="/contact" className="underline">
-              get in touch
-            </Link>
-            .
-          </p>
-        </div>
-      </Container>
-    </Section>
-    </PortfolioLayout>
-  );
+  return <PortfolioLayout><MissingPage /></PortfolioLayout>;
 }

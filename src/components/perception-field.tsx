@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { SiteHeader } from "@/components/layout/site-header";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 const motionQuery = "(prefers-reduced-motion: reduce)";
@@ -45,7 +45,7 @@ function gripperGeometry() {
 }
 const gripper = gripperGeometry();
 
-export function PerceptionField({ children }: { children: React.ReactNode }) {
+export function PerceptionField({ children, isHome = true }: { children: React.ReactNode; isHome?: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const engineRef = useRef<{ pause: (value: boolean) => void } | null>(null);
   const [paused, setPaused] = useState(false);
@@ -322,35 +322,7 @@ export function PerceptionField({ children }: { children: React.ReactNode }) {
       <div className="home-scene" aria-hidden="true">
         <canvas ref={canvasRef} className="perception-field" />
       </div>
-      <header className={`home-menu${paused || reducedMotion ? " is-motion-paused" : ""}`}>
-        <button className="home-menu-toggle" popoverTarget="home-navigation">
-          <svg className="menu-constellation" viewBox="0 0 32 32" aria-hidden="true">
-            <g className="menu-orbit">
-              <path className="menu-icon-path" d="M7 21L18 8L26 22" />
-              <circle className="menu-point-one" cx="7" cy="21" r="1.9" />
-              <circle className="menu-point-two" cx="18" cy="8" r="2.2" />
-              <circle className="menu-point-three" cx="26" cy="22" r="1.7" />
-            </g>
-          </svg>
-          <span>Menu</span>
-        </button>
-        <nav id="home-navigation" className="home-navigation" popover="auto" aria-label="Main">
-          <div className="menu-link-list">
-            <svg className="menu-branch" viewBox="0 0 48 156" aria-hidden="true">
-              <path d="M28 26L18 78L31 130" />
-              <circle cx="28" cy="26" r="2.5" />
-              <circle cx="18" cy="78" r="2.5" />
-              <circle cx="31" cy="130" r="2.5" />
-            </svg>
-            <Link href="/projects"><span>Projects</span></Link>
-            <a href="#bio" onClick={event => event.currentTarget.closest("nav")?.hidePopover()}><span>About</span></a>
-            <Link href="/contact"><span>Contact</span></Link>
-          </div>
-          <button className="field-motion-toggle" disabled={reducedMotion} onClick={() => setPaused(!paused)}>
-            {reducedMotion ? "Motion reduced" : paused ? "Resume animation" : "Pause animation"}
-          </button>
-        </nav>
-      </header>
+      <SiteHeader isHome={isHome} paused={paused} reducedMotion={reducedMotion} onToggleMotion={() => setPaused(value => !value)} />
       {children}
     </div>
   );

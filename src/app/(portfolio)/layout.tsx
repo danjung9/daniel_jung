@@ -1,8 +1,11 @@
 import { SiteFooter } from "@/components/layout/site-footer";
-import { SiteHeader } from "@/components/layout/site-header";
+import Link from "next/link";
+import { PerceptionField } from "@/components/perception-field";
+import { siteConfig } from "@/data/site";
 
 export default function PortfolioLayout({ children }: { children: React.ReactNode }) {
   return (
+    <PerceptionField isHome={false}>
     <div className="portfolio-page relative flex min-h-dvh flex-col">
       <a
         href="#main-content"
@@ -10,9 +13,12 @@ export default function PortfolioLayout({ children }: { children: React.ReactNod
       >
         Skip to main content
       </a>
-      <SiteHeader />
+      <div className="portfolio-header">
+        <Link href="/" className="portfolio-home-link">{siteConfig.name}</Link>
+      </div>
       <main id="main-content" className="flex-1">{children}</main>
       <SiteFooter />
     </div>
+    </PerceptionField>
   );
 }
