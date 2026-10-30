@@ -16,7 +16,7 @@ export function SectionHeading({
   const alignClass = align === "center" ? "text-center" : "text-left";
 
   return (
-    <header className={`space-y-3 ${alignClass}`}>
+    <header className={`section-heading space-y-3 ${alignClass}`}>
       {eyebrow ? (
         <p className="eyebrow text-xs font-semibold">{eyebrow}</p>
       ) : null}

@@ -65,33 +65,28 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
 
   if (isIndex) {
     return (
-      <article className="group">
+      <article className="workbench-entry">
+        <svg className="workbench-stars" viewBox="0 0 40 48" aria-hidden="true">
+          <path d="M7 32L18 12L32 24" />
+          <circle cx="7" cy="32" r="1.5" />
+          <circle cx="18" cy="12" r="2.5" />
+          <circle cx="32" cy="24" r="1.5" />
+        </svg>
+        <div className="workbench-media">
+          <ProjectMedia project={project} controls={Boolean(project.video)}
+            className="workbench-image" />
+        </div>
         <Link
           href={`/projects/${project.slug}`}
-          aria-label={`View case study for ${project.title}`}
-          className="block space-y-5 focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4"
+          aria-label={`Explore ${project.shortTitle ?? project.title}`}
+          className="workbench-copy"
         >
-          <div className="overflow-hidden rounded-[8px] border border-[var(--border)] bg-[var(--background-strong)] transition-colors duration-200 group-hover:border-[var(--accent)] group-focus-within:border-[var(--accent)]">
-            <ProjectMedia
-              project={project}
-              className="aspect-[16/10] h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.015] group-focus-within:scale-[1.015]"
-            />
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="display-heading text-2xl font-semibold leading-tight text-[var(--text)] transition-colors duration-200 group-hover:text-[var(--accent)] group-focus-within:text-[var(--accent)] sm:text-3xl">
-              {project.title}
-            </h2>
-
-            <div className="border-t border-[var(--border)] pt-3">
-              <p className="text-sm leading-6 text-[var(--text-muted)]">
-                {project.recruiterSignal ?? project.tagline}
-                <span className="px-2 text-[var(--border-strong)]" aria-hidden="true">
-                  /
-                </span>
-                {project.period}
-              </p>
-            </div>
+          <h2 className="display-heading">{project.shortTitle ?? project.title}</h2>
+          <p className="workbench-caption">{project.tagline}</p>
+          <p className="workbench-note">{project.problem ?? project.summary}</p>
+          <div className="workbench-meta">
+            <span>{project.period}</span>
+            <span className="project-open">Explore project <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></span>
           </div>
         </Link>
       </article>

@@ -18,6 +18,7 @@ export interface ProjectLinks {
 export interface Project {
   slug: string;
   title: string;
+  shortTitle?: string;
   tagline: string;
   summary: string;
   description: string;
