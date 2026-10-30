@@ -18,11 +18,10 @@ export default function ProjectsPage() {
     <Section>
       <Container className="space-y-12">
         <SectionHeading as="h1"
-          eyebrow="Selected Work"
-          title="A visual index of applied AI systems."
-          description="Browse the work quickly, then open a case study for the technical details."
+          title="Projects"
+          description="A few things I’ve been building, from perception and robotics to software that makes AI easier to understand."
         />
-        <div className="grid gap-x-8 gap-y-12 md:grid-cols-2">
+        <div className="project-workbench">
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} variant="index" />
           ))}

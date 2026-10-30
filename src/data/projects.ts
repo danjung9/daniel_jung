@@ -4,6 +4,7 @@ export const projects: Project[] = [
   {
     slug: "emio-pick-place-imitation-lab",
     title: "Emio Pick-and-Place Imitation Lab",
+    shortTitle: "Emio",
     tagline: "SOFA robotics lab for pick-and-place imitation learning and policy evaluation",
     summary:
       "Built an Emio-based pick-and-place imitation-learning lab that collects scripted expert rollouts, trains an implicit behavior-cloning policy, and evaluates learned controllers in closed loop.",
@@ -128,6 +129,7 @@ export const projects: Project[] = [
   {
     slug: "fine-tuning-to-beat-llama-3",
     title: "Fine-Tuning to Beat Llama 3",
+    shortTitle: "Fine-tuning LLMs",
     tagline: "Efficient LLM fine-tuning study comparing Mistral-7B against Llama 3 70B",
     summary:
       "Co-authored a CMU GenAI course project evaluating whether parameter-efficient fine-tuning and retrieval-augmented demonstrations can help smaller LLMs outperform larger models on specialized tasks.",
@@ -175,6 +177,7 @@ export const projects: Project[] = [
   {
     slug: "ai-shopping-glasses",
     title: "AI Shopping Assistant Glasses",
+    shortTitle: "Shopping Lens",
     tagline: "Real-time in-store product intelligence using smart glasses and multimodal AI",
     summary:
       "Built a live shopping assistant using Meta Ray-Ban smart glasses that detects product interactions and performs real-time research on pricing, specs, and alternatives.",
@@ -265,6 +268,7 @@ export const projects: Project[] = [
   {
     slug: "chemical-plant-design-project",
     title: "Designing Ammonia Production",
+    shortTitle: "Ammonia Plant Design",
     tagline: "End-to-end chemical process design integrating thermodynamics, transport, and control",
     summary: "Designed a large-scale chemical plant by integrating core chemical engineering principles including material and energy balances, thermodynamics, transport phenomena, reaction engineering, and process control.",
     description: "This project is a comprehensive chemical plant design completed as part of a capstone ChE curriculum. It applies the five foundational pillars of chemical engineering: material and energy balances, thermodynamics, mass and heat transport, reactive process engineering, and process control. The work involved designing and analyzing unit operations such as compressors, heat exchangers, and reactors, while ensuring system-wide efficiency, feasibility, and controllability. The final design incorporates both steady-state analysis and control strategies, demonstrating the ability to translate theoretical principles into a functional, large-scale process system.",

@@ -50,7 +50,6 @@ export default function HomePage() {
               </p>
               <div className="home-bio-links">
                 <Link href="/projects">Explore my projects</Link>
-                <Link href="/about">Background &amp; experience</Link>
               </div>
             </div>
           </div>

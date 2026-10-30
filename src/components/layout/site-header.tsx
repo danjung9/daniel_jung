@@ -1,166 +1,53 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { siteConfig } from "../../data/site";
-import { NavLink } from "../ui/nav-link";
-import { Container } from "./container";
+import { siteConfig } from "@/data/site";
 
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
+  { href: "/#bio", label: "About" },
   { href: "/contact", label: "Contact" }
 ];
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuId = useId();
-  const firstMobileLinkRef = useRef<HTMLAnchorElement>(null);
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const headerRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const frameId = window.requestAnimationFrame(() => {
-      setIsMenuOpen(false);
-    });
-
-    return () => {
-      window.cancelAnimationFrame(frameId);
-    };
-  }, [pathname]);
-
-  useEffect(() => {
-    if (!isMenuOpen) {
-      return;
-    }
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsMenuOpen(false);
-        menuButtonRef.current?.focus();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    const frameId = window.requestAnimationFrame(() => {
-      firstMobileLinkRef.current?.focus();
-    });
-    const handlePointerDown = (event: PointerEvent) => {
-      if (event.target instanceof Node && !headerRef.current?.contains(event.target)) {
-        setIsMenuOpen(false);
-      }
-    };
-    const desktop = window.matchMedia("(min-width: 768px)");
-    const closeOnDesktop = () => {
-      if (desktop.matches) setIsMenuOpen(false);
-    };
-    desktop.addEventListener("change", closeOnDesktop);
-    window.addEventListener("pointerdown", handlePointerDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      window.cancelAnimationFrame(frameId);
-      window.removeEventListener("pointerdown", handlePointerDown);
-      desktop.removeEventListener("change", closeOnDesktop);
-    };
-  }, [isMenuOpen]);
 
   return (
-    <header ref={headerRef} onBlur={(event) => {
-      if (!event.currentTarget.contains(event.relatedTarget)) setIsMenuOpen(false);
-    }} className="sticky top-0 z-30 border-b border-[var(--border)] bg-[var(--header-background)] backdrop-blur-xl">
-      <Container className="relative flex h-16 items-center justify-between py-3 sm:h-18 sm:py-4">
-        <Link
-          href="/"
-          className="group inline-flex min-h-11 items-center gap-2 whitespace-nowrap text-sm font-semibold tracking-[0.03em] text-[var(--text)]"
-        >
-          <span
-            aria-hidden="true"
-            className="h-2 w-2 rounded-[8px] bg-[var(--accent)] transition-transform duration-200 group-hover:scale-125"
-          />
-          <span>{siteConfig.name}</span>
-        </Link>
-
-        <button
-          ref={menuButtonRef}
-          type="button"
-          aria-expanded={isMenuOpen}
-          aria-controls={isMenuOpen ? menuId : undefined}
-          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-[8px] bg-[var(--surface)] text-[var(--text)] shadow-[0_10px_26px_rgba(16,24,32,0.06)] ring-1 ring-[var(--border)] transition hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] md:hidden"
-          onClick={() => setIsMenuOpen((open) => !open)}
-        >
-          <span aria-hidden="true" className="flex flex-col gap-1.5">
-            <span
-              className={`block h-0.5 w-5 rounded-[8px] bg-current transition-transform duration-200 ${
-                isMenuOpen ? "translate-y-2 rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-5 rounded-[8px] bg-current transition-opacity duration-200 ${
-                isMenuOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-5 rounded-[8px] bg-current transition-transform duration-200 ${
-                isMenuOpen ? "-translate-y-2 -rotate-45" : ""
-              }`}
-            />
-          </span>
+    <header className="portfolio-header">
+      <Link href="/" className="portfolio-home-link">{siteConfig.name}</Link>
+      <div className="home-menu">
+        <button className="home-menu-toggle" popoverTarget="portfolio-navigation">
+          <svg className="menu-constellation" viewBox="0 0 32 32" aria-hidden="true">
+            <g className="menu-orbit">
+              <path className="menu-icon-path" d="M7 21L18 8L26 22" />
+              <circle className="menu-point-one" cx="7" cy="21" r="1.9" />
+              <circle className="menu-point-two" cx="18" cy="8" r="2.2" />
+              <circle className="menu-point-three" cx="26" cy="22" r="1.7" />
+            </g>
+          </svg>
+          <span>Menu</span>
         </button>
-
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
-          <NavLink href="/" current={pathname === "/"}>
-            Home
-          </NavLink>
-          <NavLink href="/projects" current={pathname.startsWith("/projects")}>
-            Projects
-          </NavLink>
-          <NavLink href="/about" current={pathname === "/about"}>
-            About
-          </NavLink>
-          <NavLink href="/contact" current={pathname === "/contact"}>
-            Contact
-          </NavLink>
-        </nav>
-
-        {isMenuOpen ? (
-          <div className="absolute inset-x-0 top-full pt-3 md:hidden">
-            <nav
-              id={menuId}
-              aria-label="Mobile"
-              className="overflow-hidden rounded-[8px] border border-[var(--border)] bg-[var(--surface-strong)] p-2 shadow-[0_20px_48px_rgba(25,35,46,0.08)] backdrop-blur-xl"
-            >
-              <div className="grid gap-1">
-                {navItems.map((item, index) => {
-                  const current =
-                    item.href === "/"
-                      ? pathname === "/"
-                      : pathname.startsWith(item.href);
-
-                  return (
-                    <Link
-                      key={item.href}
-                      ref={index === 0 ? firstMobileLinkRef : undefined}
-                      href={item.href}
-                      aria-current={current ? "page" : undefined}
-                      className={`mobile-nav-link rounded-[8px] px-4 py-3 text-base font-medium text-[var(--text-muted)] transition hover:bg-[var(--accent-soft)] hover:!text-[var(--text)] ${
-                        current ? "bg-[var(--accent-soft)] !text-[var(--accent)]" : ""
-                      }`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                })}
-              </div>
-            </nav>
+        <nav id="portfolio-navigation" className="home-navigation" popover="auto" aria-label="Main">
+          <div className="menu-link-list">
+            <svg className="menu-branch" viewBox="0 0 48 208" aria-hidden="true">
+              <path d="M28 26L18 78L31 130L22 182" />
+              <circle cx="28" cy="26" r="2.5" />
+              <circle cx="18" cy="78" r="2.5" />
+              <circle cx="31" cy="130" r="2.5" />
+              <circle cx="22" cy="182" r="2.5" />
+            </svg>
+            {navItems.map(({ href, label }) => (
+              <Link key={href} href={href}
+                aria-current={(href === "/" ? pathname === href : pathname.startsWith(href)) ? "page" : undefined}
+                onClick={event => event.currentTarget.closest("nav")?.hidePopover()}>
+                <span>{label}</span>
+              </Link>
+            ))}
           </div>
-        ) : null}
-      </Container>
+        </nav>
+      </div>
     </header>
   );
 }

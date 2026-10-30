@@ -16,7 +16,7 @@ const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["600", "700", "800"]
+  weight: ["500", "600", "700", "800"]
 });
 
 export const metadata: Metadata = {
@@ -71,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${ibmPlexSans.variable} ${manrope.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${ibmPlexSans.variable} ${manrope.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { ProjectMedia } from "@/components/ui/project-media";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { getProjectBySlug, projects } from "@/data/projects";
@@ -57,166 +57,109 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
     url: `${SITE_URL}/projects/${project.slug}`
   };
 
+  const chapters = [
+    { id: "idea", label: "The idea" },
+    { id: "contribution", label: "What I built" },
+    { id: "approach", label: "How it works" },
+    ...(project.impact?.length ? [{ id: "results", label: "What came out" }] : []),
+    { id: "context", label: "A closer look" }
+  ];
+  const resources = [
+    ...(project.links.live ? [{ label: "Open demo", href: project.links.live }] : []),
+    ...(project.links.repo ? [{ label: "View code", href: project.links.repo }] : []),
+    ...(project.links.caseStudy?.startsWith("http") ? [{ label: "Read case study", href: project.links.caseStudy }] : []),
+    ...(project.links.attachments ?? [])
+  ];
+  const nextProject = projects[(projects.findIndex(item => item.slug === project.slug) + 1) % projects.length];
+
   return (
     <Section>
-      <Container className="space-y-12">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+      <Container className="project-detail">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <Link href="/projects" className="text-link project-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M20 12H5m6-6-6 6 6 6" /></svg>
+          All projects
+        </Link>
+        <SectionHeading as="h1" title={project.shortTitle ?? project.title} description={project.tagline} />
 
-        <SectionHeading as="h1"
-          eyebrow="Case Study"
-          title={project.title}
-          description={project.recruiterSignal ?? project.tagline}
-        />
-        {project.metric ?? project.outcome ? (
-          <p className="max-w-3xl border-l-2 border-[var(--accent)] pl-4 text-base font-semibold leading-7 text-[var(--text)]">
-            {project.metric ?? project.outcome}
-          </p>
-        ) : null}
-
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
-
-          <article className="min-w-0">
-            <div className="overflow-hidden border border-[var(--border)] bg-[var(--background-strong)]">
-              <div className="overflow-hidden">
-                <ProjectMedia
-                  project={project}
-                  className="w-full bg-[var(--background-strong)] object-contain"
-                  priority
-                  controls={Boolean(project.video)}
-                />
-              </div>
+        <div className="project-desk">
+          <figure className="project-artifact">
+            <div className="project-artifact-media">
+              <ProjectMedia project={project} className="project-artifact-image" priority controls={Boolean(project.video)} />
             </div>
-
-            <section className="border-t border-[var(--border)] py-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-                Problem
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold">What this project needed to solve</h2>
-              <p className="prose-copy mt-4 text-base">{project.problem ?? project.description}</p>
+            {project.metric ?? project.outcome ? (
+              <figcaption>{project.metric ?? project.outcome}</figcaption>
+            ) : null}
+          </figure>
+          <aside className="project-notes" aria-label="Project details and resources">
+            <dl className="project-facts">
+              <div><dt>Role</dt><dd>{project.role}</dd></div>
+              <div><dt>Period</dt><dd>{project.period}</dd></div>
+              {project.teamSize ? <div><dt>Team</dt><dd>{project.teamSize} {project.teamSize === 1 ? "person" : "people"}</dd></div> : null}
+              <div><dt>Status</dt><dd>{project.status === "in-progress" ? "In progress" : project.status === "archived" ? "Archived" : "Live"}</dd></div>
+            </dl>
+            <section className="project-tools" aria-labelledby="tools-title">
+              <h2 id="tools-title">Made with</h2>
+              <div className="flex flex-wrap gap-x-3 gap-y-1">
+                {project.stack.map(item => <Badge key={item}>{item}</Badge>)}
+              </div>
             </section>
-
-            <section className="border-t border-[var(--border)] py-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-                My Role
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold">Ownership and contribution</h2>
-              <p className="prose-copy mt-4 text-base">{project.contribution ?? project.summary}</p>
-            </section>
-
-            <section className="border-t border-[var(--border)] py-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-                Technical Approach
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold">How the system was built</h2>
-              <ul className="mt-4 space-y-3 text-sm text-[var(--text-muted)] md:text-base">
-                {project.highlights.map((highlight) => (
-                  <li key={highlight} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-[var(--accent)]" />
-                    <span>{highlight}</span>
-                  </li>
+            {resources.length ? (
+              <div className="project-resources">
+                {resources.map(resource => (
+                  <Link key={`${resource.label}-${resource.href}`} href={resource.href} className="text-link" target="_blank" rel="noreferrer">
+                    {resource.label}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" /></svg>
+                  </Link>
                 ))}
-              </ul>
-            </section>
+              </div>
+            ) : null}
+          </aside>
+        </div>
 
+        <div className="project-journal">
+          <nav className="project-chapters" aria-label="In this project">
+            <svg viewBox={`0 0 40 ${chapters.length * 44}`} width="40" height={chapters.length * 44} aria-hidden="true">
+              <path d={chapters.map((_, index) => `${index ? "L" : "M"}${index % 2 ? 12 : 24} ${index * 44 + 22}`).join(" ")} />
+              {chapters.map((chapter, index) => <circle key={chapter.id} cx={index % 2 ? 12 : 24} cy={index * 44 + 22} r="2.5" />)}
+            </svg>
+            {chapters.map(chapter => <a key={chapter.id} href={`#${chapter.id}`}>{chapter.label}</a>)}
+          </nav>
+          <article className="project-story" aria-label={`${project.shortTitle ?? project.title} project notes`}>
+            <section id="idea" aria-labelledby="idea-title">
+              <h2 id="idea-title">The idea</h2>
+              <p>{project.problem ?? project.description}</p>
+            </section>
+            <section id="contribution" aria-labelledby="contribution-title">
+              <h2 id="contribution-title">What I built</h2>
+              <p>{project.contribution ?? project.summary}</p>
+            </section>
+            <section id="approach" aria-labelledby="approach-title">
+              <h2 id="approach-title">How it works</h2>
+              <ul>{project.highlights.map(highlight => <li key={highlight}>{highlight}</li>)}</ul>
+            </section>
             {project.impact?.length ? (
-              <section className="border-t border-[var(--border)] py-8">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-                  Results
-                </p>
-                <h2 className="mt-3 text-2xl font-semibold">Outcome and proof</h2>
-                <ul className="mt-4 grid gap-4 md:grid-cols-2">
-                  {project.impact.map((item) => (
-                    <li
-                      key={item}
-                      className="border-l border-[var(--border)] pl-4 text-sm leading-6 text-[var(--text-muted)]"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+              <section id="results" aria-labelledby="results-title">
+                <h2 id="results-title">What came out</h2>
+                <ul>{project.impact.map(item => <li key={item}>{item}</li>)}</ul>
               </section>
             ) : null}
-
-            <section className="border-t border-[var(--border)] py-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-                Overview
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold">Full context</h2>
-              <p className="prose-copy mt-4 text-base">{project.description}</p>
+            <section id="context" aria-labelledby="context-title">
+              <h2 id="context-title">A closer look</h2>
+              <p>{project.description}</p>
             </section>
           </article>
-
-          <aside className="min-w-0 space-y-6 border-t border-[var(--border)] pt-6">
-            <section>
-              <h2 className="text-lg font-semibold">Project Info</h2>
-              <dl className="mt-4 divide-y divide-[var(--border)] text-sm text-[var(--text-muted)]">
-                <div className="grid grid-cols-[5rem_minmax(0,1fr)] gap-3 py-3 first:pt-0">
-                  <dt className="font-medium text-[var(--text)]">Role</dt>
-                  <dd>{project.role}</dd>
-                </div>
-                <div className="grid grid-cols-[5rem_minmax(0,1fr)] gap-3 py-3">
-                  <dt className="font-medium text-[var(--text)]">Period</dt>
-                  <dd>{project.period}</dd>
-                </div>
-                {project.teamSize ? (
-                  <div className="grid grid-cols-[5rem_minmax(0,1fr)] gap-3 py-3">
-                    <dt className="font-medium text-[var(--text)]">Team</dt>
-                    <dd>{project.teamSize}</dd>
-                  </div>
-                ) : null}
-                <div className="grid grid-cols-[5rem_minmax(0,1fr)] gap-3 py-3">
-                  <dt className="font-medium text-[var(--text)]">Status</dt>
-                  <dd className="capitalize">{project.status ?? "live"}</dd>
-                </div>
-              </dl>
-            </section>
-
-            <section className="border-t border-[var(--border)] pt-5">
-              <h2 className="text-lg font-semibold">Stack</h2>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.stack.map((item) => (
-                  <Badge key={item}>{item}</Badge>
-                ))}
-              </div>
-            </section>
-
-            <section className="border-t border-[var(--border)] pt-5">
-              <h2 className="text-lg font-semibold">Links</h2>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {project.links.live ? (
-                  <Button href={project.links.live} external>
-                    Live Demo
-                  </Button>
-                ) : null}
-                {project.links.repo ? (
-                  <Button href={project.links.repo} variant="secondary" external>
-                    Repository
-                  </Button>
-                ) : null}
-                {project.links.caseStudy &&
-                project.links.caseStudy.startsWith("http") ? (
-                  <Button href={project.links.caseStudy} variant="ghost" external>
-                    Case Study
-                  </Button>
-                ) : null}
-                {project.links.attachments?.map((attachment) => (
-                  <Button
-                    key={`${attachment.label}-${attachment.href}`}
-                    href={attachment.href}
-                    variant="secondary"
-                    external
-                  >
-                    {attachment.label}
-                  </Button>
-                ))}
-              </div>
-            </section>
-          </aside>
-
         </div>
+
+        <nav className="project-continuation" aria-label="Explore more projects">
+          <Link href="/projects" className="text-link">Back to the workbench</Link>
+          <Link href={`/projects/${nextProject.slug}`} className="project-next">
+            <span>Next project</span>
+            <span className="display-heading">{nextProject.shortTitle ?? nextProject.title}
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg>
+            </span>
+          </Link>
+        </nav>
       </Container>
     </Section>
   );
