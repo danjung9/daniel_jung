@@ -22,7 +22,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }]
+    icon: [{ url: "/favicon.svg?v=constellation", type: "image/svg+xml" }]
   },
   title: {
     default: `${siteConfig.name} | ${siteConfig.title}`,
