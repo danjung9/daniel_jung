@@ -19,7 +19,7 @@ export default function ContactPage() {
     <Section className="py-12 sm:py-16 lg:py-20">
       <Container className="grid gap-10 lg:grid-cols-[1fr_0.85fr]">
         <section className="border-t border-[var(--border)] pt-8">
-          <SectionHeading
+          <SectionHeading as="h1"
             eyebrow="Contact"
             title="Open to AI / ML, robotics, and software engineering conversations."
             description="The fastest way to reach me is by email. I typically respond within one business day."
@@ -49,7 +49,7 @@ export default function ContactPage() {
             ) : null}
             <div className={siteConfig.location ? "pt-4" : ""}>
               <dt className="font-medium text-[var(--text)]">Email</dt>
-              <dd className="mt-1">{siteConfig.email}</dd>
+              <dd className="mt-1"><a className="text-link" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></dd>
             </div>
           </dl>
         </section>
