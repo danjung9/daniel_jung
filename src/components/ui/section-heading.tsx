@@ -1,5 +1,6 @@
 interface SectionHeadingProps {
   title: string;
+  as?: "h1" | "h2";
   eyebrow?: string;
   description?: string;
   align?: "left" | "center";
@@ -7,6 +8,7 @@ interface SectionHeadingProps {
 
 export function SectionHeading({
   title,
+  as: Heading = "h2",
   eyebrow,
   description,
   align = "left",
@@ -18,9 +20,9 @@ export function SectionHeading({
       {eyebrow ? (
         <p className="eyebrow text-xs font-semibold">{eyebrow}</p>
       ) : null}
-      <h2 className="display-heading text-3xl font-semibold text-[var(--text)] sm:text-4xl">
+      <Heading className="display-heading max-w-4xl text-4xl font-semibold leading-[1.12] text-[var(--text)] sm:text-5xl">
         {title}
-      </h2>
+      </Heading>
       {description ? (
         <p className="max-w-2xl text-base leading-7 text-[var(--text-muted)]">
           {description}

@@ -65,7 +65,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        <SectionHeading
+        <SectionHeading as="h1"
           eyebrow="Case Study"
           title={project.title}
           description={project.recruiterSignal ?? project.tagline}
@@ -77,12 +77,13 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         ) : null}
 
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
-          <article className="order-2 lg:order-1">
+
+          <article className="min-w-0">
             <div className="overflow-hidden border border-[var(--border)] bg-[var(--background-strong)]">
               <div className="overflow-hidden">
                 <ProjectMedia
                   project={project}
-                  className="max-h-[70vh] w-full bg-black object-contain"
+                  className="w-full bg-[var(--background-strong)] object-contain"
                   priority
                   controls={Boolean(project.video)}
                 />
@@ -148,7 +149,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </section>
           </article>
 
-          <aside className="order-1 space-y-6 border-t border-[var(--border)] pt-6 lg:sticky lg:top-24 lg:order-2">
+          <aside className="min-w-0 space-y-6 border-t border-[var(--border)] pt-6">
             <section>
               <h2 className="text-lg font-semibold">Project Info</h2>
               <dl className="mt-4 divide-y divide-[var(--border)] text-sm text-[var(--text-muted)]">
@@ -214,6 +215,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               </div>
             </section>
           </aside>
+
         </div>
       </Container>
     </Section>

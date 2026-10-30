@@ -21,13 +21,13 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
 
   if (isCompact) {
     return (
-      <article className="group border-t border-[var(--border)] bg-white transition-colors duration-200 hover:border-[var(--text)]">
+      <article className="group border-t border-[var(--border)] bg-[var(--background)] transition-colors duration-200 hover:border-[var(--text)]">
         <Link
           href={`/projects/${project.slug}`}
           aria-label={`View case study for ${project.title}`}
           className="grid cursor-pointer gap-5 py-6 focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4 md:grid-cols-[18rem_minmax(0,1fr)] md:items-center"
         >
-          <div className="hidden overflow-hidden border border-[var(--border)] bg-[var(--background-strong)] md:block">
+          <div className="hidden overflow-hidden rounded-[8px] border border-[var(--border)] bg-[var(--background-strong)] md:block">
             <ProjectMedia
               project={project}
               className={compactMediaClass}
@@ -71,7 +71,7 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
           aria-label={`View case study for ${project.title}`}
           className="block space-y-5 focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4"
         >
-          <div className="overflow-hidden border border-[var(--border)] bg-[var(--background-strong)] transition-colors duration-200 group-hover:border-[var(--accent)] group-focus-within:border-[var(--accent)]">
+          <div className="overflow-hidden rounded-[8px] border border-[var(--border)] bg-[var(--background-strong)] transition-colors duration-200 group-hover:border-[var(--accent)] group-focus-within:border-[var(--accent)]">
             <ProjectMedia
               project={project}
               className="aspect-[16/10] h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.015] group-focus-within:scale-[1.015]"
@@ -79,9 +79,9 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-2xl font-semibold leading-tight text-[var(--text)] transition-colors duration-200 group-hover:text-[var(--accent)] group-focus-within:text-[var(--accent)] sm:text-3xl">
+            <h2 className="display-heading text-2xl font-semibold leading-tight text-[var(--text)] transition-colors duration-200 group-hover:text-[var(--accent)] group-focus-within:text-[var(--accent)] sm:text-3xl">
               {project.title}
-            </h3>
+            </h2>
 
             <div className="border-t border-[var(--border)] pt-3">
               <p className="text-sm leading-6 text-[var(--text-muted)]">

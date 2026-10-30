@@ -6,10 +6,10 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[var(--border)] bg-[rgba(255,255,255,0.5)]">
+    <footer className="border-t border-[var(--border)] bg-[var(--background)]">
       <Container className="flex flex-col gap-3 py-8 text-sm text-[var(--text-muted)] sm:flex-row sm:items-center sm:justify-between">
         <p>
-          {year} {siteConfig.name}. Built with Next.js.
+          © {year} {siteConfig.name}
         </p>
         <div className="flex flex-wrap items-center gap-4">
           {siteConfig.socials.map((social) => (
