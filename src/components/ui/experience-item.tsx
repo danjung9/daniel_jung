@@ -7,7 +7,7 @@ interface ExperienceItemProps {
 
 export function ExperienceItem({ item }: ExperienceItemProps) {
   return (
-    <article className="border-t border-[var(--border)] pt-5">
+    <article className="experience-item space-y-4 border-t border-[var(--border)] pt-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h3 className="text-lg font-semibold text-[var(--text)]">{item.title}</h3>

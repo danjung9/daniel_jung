@@ -7,8 +7,28 @@ Scrolling resolves the field into layered mountain ridges and sparse trees made
 entirely of silver particles on black. A centered biography layout pairs a square
 monochrome portrait with left-aligned text. The menu's
 About link and the introductory About me link jump directly to the biography.
-Projects, contact, and the detailed background page retain their existing URLs
-and share a header and footer through the `(portfolio)` route group.
+Projects and contact share a header and footer through the `(portfolio)` route
+group. About links lead to the homepage biography; there is no separate About page.
+
+The inner pages and missing-page screen extend the homepage's minimal evening
+style with warm near-black surfaces, ivory text, muted sand accents, and generous
+reading space. They use the same constellation menu, with native popover keyboard
+and dismissal behavior. Project media keeps its original color with a subtle
+saturation reduction; project details retain their video controls and resources.
+
+Projects uses a workbench layout: roomy media-and-text rows, short display titles,
+and a restrained constellation rail that connects on hover or keyboard focus.
+The robotics demo is playable inline without autoplay. On phones, the rows stack
+and the rail becomes a small constellation beside each project's links. Page
+headings use a quieter medium weight and consistent, simple titles.
+
+Individual projects continue the workbench layout with media beside compact facts,
+tools, and resource links. A constellation chapter rail leads through the project
+notes, becoming a wrapping list of anchors on phones. Reading sections use short
+headings and a comfortable text measure, followed by a link to the next project.
+
+Contact uses the same quiet workbench spacing, with a direct email link and a
+small constellation connecting the resume and profile links on hover or focus.
 
 The homepage's perception field uses a dependency-free canvas on jet black.
 The upper-right menu uses a small orbiting constellation, connects on hover or
